@@ -43,7 +43,7 @@
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="cakes.html">Cakes</a></li>
-          <li><a href="classes.html">Classes</a></li>
+          <li><a href="classes.html" class="active">Classes</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -689,6 +689,149 @@
         any questions about our classes.
       </p>
       <a href="contact.html" class="btn btn-outline">Register Now</a>
+    </section>
+    <!-- Contact Form -->
+    <section class="section" id="contact-form" style="background-color: white">
+      <h2 class="section-title">Class Registration</h2>
+      <form
+        class="contact-form"
+        action="https://getform.io/f/bllyvdqb"
+        method="POST"
+        style="max-width: 600px; margin: 0 auto"
+      >
+        <div style="margin-bottom: 20px">
+          <label
+            for="name"
+            style="display: block; margin-bottom: 5px; font-weight: bold"
+            >Your Name</label
+          >
+          <input type="text"  id="name" name="name" required style="
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ddd;
+              border-radius: 5px;
+            "/>
+        </div>
+
+        <div style="margin-bottom: 20px">
+          <label
+            for="email"
+            style="display: block; margin-bottom: 5px; font-weight: bold"
+            >Email Address</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            style="
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ddd;
+              border-radius: 5px;
+            "
+          />
+        </div>
+
+        <div style="margin-bottom: 20px">
+          <label
+            for="phone"
+            style="display: block; margin-bottom: 5px; font-weight: bold"
+            >Phone Number</label
+          >
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+            style="
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ddd;
+              border-radius: 5px;
+            "
+          />
+        </div>
+
+        <div style="margin-bottom: 20px">
+          <label
+            for="class-type"
+            style="display: block; margin-bottom: 5px; font-weight: bold"
+            >Class Type</label
+          >
+          <select
+            id="class-type"
+            name="class-type"
+            required
+            style="
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ddd;
+              border-radius: 5px;
+            "
+          >
+            <option value="">Select a class...</option>
+            <option value="north-indian">North Indian Cooking</option>
+            <option value="south-indian">South Indian Cooking</option>
+            <option value="cake-basics">Cake Basics</option>
+            <option value="bread-making">Bread Making</option>
+            <option value="indian-snacks">Indian Snacks</option>
+            <option value="kids-cookie">Kids Cookie Decorating</option>
+            <option value="kids-cupcake">Kids Cupcake Workshop</option>
+            <option value="ice-cream">Ice Cream Making</option>
+            <option value="birthday-party">Birthday Party</option>
+            <option value="holiday-camp">Holiday Baking Camp</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 20px">
+          <label
+            for="participants"
+            style="display: block; margin-bottom: 5px; font-weight: bold"
+            >Number of Participants</label
+          >
+          <input
+            type="number"
+            id="participants"
+            name="participants"
+            min="1"
+            required
+            style="
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ddd;
+              border-radius: 5px;
+            "
+          />
+        </div>
+
+        <div style="margin-bottom: 20px">
+          <label
+            for="message"
+            style="display: block; margin-bottom: 5px; font-weight: bold"
+            >Additional Notes</label
+          >
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            style="
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ddd;
+              border-radius: 5px;
+            "
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="btn"
+          style="width: 100%; padding: 12px; font-size: 1.1rem"
+        >
+          Submit Registration
+        </button>
+      </form>
     </section>
 
     <footer>
