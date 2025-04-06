@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Nami's Cake and Bake</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #E67E22;
+            --light: #FFF9F5;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--light);
+            margin: 0;
+        }
+        
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 8px 12px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: var(--primary);
+        }
+        
+        /* Gallery Header */
+        .gallery-header {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .gallery-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Toggle Buttons */
+        .toggle-buttons {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .toggle-btn {
+            background-color: #eee;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-btn:hover,
+        .toggle-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        /* Gallery Container */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+        
+        /* Gallery Rows */
+        .gallery-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            transition: all 0.4s ease-in-out;
+        }
+        
+        /* Post Card */
+        .post-card {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        
+        .instagram-embed {
+            width: 100%;
+            height: 100%;
+            border: none;
+            overflow: hidden;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+        
+        .social-links {
+            margin: 15px 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .gallery-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Nami's Cake and Bake</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cakes.html">Cakes</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Gallery Header -->
+    <section class="gallery-header">
+        <h1>Our Sweet Creations</h1>
+        <p>Browse through our delicious creations and baking classes</p>
+    </section>
+
+    <!-- Toggle Buttons -->
+    <div class="toggle-buttons">
+        <button class="toggle-btn active" onclick="showCategory('cakes', this)">Cakes</button>
+        <button class="toggle-btn" onclick="showCategory('classes', this)">Classes</button>
+    </div>
+
+    <!-- Gallery Container -->
+    <div class="gallery-container">
+        <!-- Cakes Gallery -->
+        <div class="gallery-row cakes">
+            <!-- Instagram Post 1 -->
+            <div class="post-card">
+                <blockquote class="instagram-media" 
+                    data-instgrm-permalink="https://www.instagram.com/p/CvU221Ut8W2/"
+                    data-instgrm-version="14"
+                    data-instgrm-captioned
+                    style="width:100%;height:100%;">
+                    <div style="padding:16px;">
+                        <a href="https://www.instagram.com/p/CvU221Ut8W2/" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           View this delicious creation on Instagram
+                        </a>
+                    </div>
+                </blockquote>
+            </div>
+            
+            <!-- Instagram Post 2 -->
+            <div class="post-card">
+                <blockquote class="instagram-media" 
+                    data-instgrm-permalink="https://www.instagram.com/p/C0t_I_btXfT/"
+                    data-instgrm-version="14"
+                    data-instgrm-captioned
+                    style="width:100%;height:100%;">
+                    <div style="padding:16px;">
+                        <a href="https://www.instagram.com/p/C0t_I_btXfT/" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           View this delicious creation on Instagram
+                        </a>
+                    </div>
+                </blockquote>
+            </div>
+            
+            <!-- Instagram Post 3 -->
+            <div class="post-card">
+                <blockquote class="instagram-media" 
+                    data-instgrm-permalink="https://www.instagram.com/p/CquPoocts3v/"
+                    data-instgrm-version="14"
+                    data-instgrm-captioned
+                    style="width:100%;height:100%;">
+                    <div style="padding:16px;">
+                        <a href="https://www.instagram.com/p/CquPoocts3v/" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           View this delicious creation on Instagram
+                        </a>
+                    </div>
+                </blockquote>
+            </div>
+            <div class="post-card">
+                <blockquote class="instagram-media" 
+                    data-instgrm-permalink="https://www.instagram.com/p/CRKV-Itrx1s/"
+                    data-instgrm-version="14"
+                    data-instgrm-captioned
+                    style="width:100%;height:100%;">
+                    <div style="padding:16px;">
+                        <a href="https://www.instagram.com/p/CRKV-Itrx1s/"
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           View this delicious creation on Instagram
+                        </a>
+                    </div>
+                </blockquote>
+            </div>
+
+            <div class="post-card">
+                <blockquote class="instagram-media" 
+                    data-instgrm-permalink="https://www.instagram.com/p/CYamU4ylAWG/"
+                    data-instgrm-version="14"
+                    data-instgrm-captioned
+                    style="width:100%;height:100%;">
+                    <div style="padding:16px;">
+                        <a href="https://www.instagram.com/p/CYamU4ylAWG/"
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           View this delicious creation on Instagram
+                        </a>
+                    </div>
+                </blockquote>
+            </div>
+
+            <div class="post-card">
+                <blockquote class="instagram-media" 
+                    data-instgrm-permalink="https://www.instagram.com/p/CZI6l8AlbTk/"
+                    data-instgrm-version="14"
+                    data-instgrm-captioned
+                    style="width:100%;height:100%;">
+                    <div style="padding:16px;">
+                        <a href="https://www.instagram.com/p/CZI6l8AlbTk/"
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           View this delicious creation on Instagram
+                        </a>
+                    </div>
+                </blockquote>
+            </div>
+            
+            <!-- Add more posts as needed -->
+            <div class="post-card">
+                <blockquote class="instagram-media" 
+                    data-instgrm-permalink="https://www.instagram.com/p/CcGG3zqteD2/"
+                    data-instgrm-version="14"
+                    data-instgrm-captioned
+                    style="width:100%;height:100%;">
+                    <div style="padding:16px;">
+                        <a href="https://www.instagram.com/p/CcGG3zqteD2/"
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           View this delicious creation on Instagram
+                        </a>
+                    </div>
+                </blockquote>
+            </div>
+            <div class="post-card">
+                <blockquote class="instagram-media" 
+                    data-instgrm-permalink="https://www.instagram.com/p/CfVc0W9lf8y/"
+                    data-instgrm-version="14"
+                    data-instgrm-captioned
+                    style="width:100%;height:100%;">
+                    <div style="padding:16px;">
+                        <a href="https://www.instagram.com/p/CfVc0W9lf8y/"
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           View this delicious creation on Instagram
+                        </a>
+                    </div>
+                </blockquote>
+            </div>
+            <div class="post-card">
+                <blockquote class="instagram-media" 
+                    data-instgrm-permalink="https://www.instagram.com/p/CkgDWePp3fT/"
+                    data-instgrm-version="14"
+                    data-instgrm-captioned
+                    style="width:100%;height:100%;">
+                    <div style="padding:16px;">
+                        <a href="https://www.instagram.com/p/CkgDWePp3fT/"
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           View this delicious creation on Instagram
+                        </a>
+                    </div>
+                </blockquote>
+            </div>
+        </div>
+
+        <!-- Classes Gallery -->
+        <div class="gallery-row classes" style="display: none;">
+            <!-- Instagram Post 1 -->
+            <div class="post-card">
+                <blockquote class="instagram-media" 
+                    data-instgrm-permalink="https://www.instagram.com/p/C_QiUx0tDAv/"
+                    data-instgrm-version="14"
+                    data-instgrm-captioned
+                    style="width:100%;height:100%;">
+                    <div style="padding:16px;">
+                        <a href="https://www.instagram.com/p/C_QiUx0tDAv/" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           View this delicious creation on Instagram
+                        </a>
+                    </div>
+                </blockquote>
+            </div>
+            
+            <!-- Add more class posts as needed -->
+            <div class="post-card">
+                <blockquote class="instagram-media" 
+                    data-instgrm-permalink="https://www.instagram.com/p/C-RgfY7SZ60/"
+                    data-instgrm-version="14"
+                    data-instgrm-captioned
+                    style="width:100%;height:100%;">
+                    <div style="padding:16px;">
+                        <a href="https://www.instagram.com/p/C-RgfY7SZ60/" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           View this delicious creation on Instagram
+                        </a>
+                    </div>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Follow us @namis_cakenbake_</p>
+        <div class="social-links">
+            <a href="https://instagram.com/namis_cakenbake_" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/918767542742" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2023 Nami's Cake and Bake</p>
+    </footer>
+
+    <script>
+        function showCategory(category, btn) {
+            document.querySelectorAll('.gallery-row').forEach(row => {
+                row.style.display = 'none';
+            });
+            document.querySelector('.' + category).style.display = 'grid';
+    
+            document.querySelectorAll('.toggle-btn').forEach(button => {
+                button.classList.remove('active');
+            });
+            btn.classList.add('active');
+        }
+        
+        // Load Instagram embeds after page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const instagramScript = document.createElement('script');
+            instagramScript.src = '//www.instagram.com/embed.js';
+            instagramScript.async = true;
+            document.body.appendChild(instagramScript);
+        });
+    </script>
+</body>
+</html>
