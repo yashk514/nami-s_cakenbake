@@ -1,201 +1,446 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/favicon_io/favicon-32x32.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Nami's Cake and Bake | Contact</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="assets/favicon_io/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Nami's Cake and Bake - Contact</title>
 
     <style>
+      :root {
+        --primary: #ff7e7e;
+        --secondary: #f9d5d3;
+        --accent: #5c4033;
+        --light: #fff4e6;
+        --dark: #3c3c3c;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
 
-    
-        *{
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            
-            font-family: 'Quicksand', sans-serif;
-            background-color: #f5f0eb;
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        h2{
-            font-size: 32px;
-            font-weight: bolder;
-        }
-        .section{
-            display: flex;
-            flex-direction: column;
-            width: 90%;
-            max-width: 500px;
-            height: auto;
-            justify-content: center;
-            align-items: center;
-            color: #4e342e;
-            padding: 25px;
-            background-color: #fffdfb;
-            box-shadow: 1px 1px 15px rgb(228, 228, 228);
-            border-radius: 12px;
-        }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+      }
+      body {
+        font-family: "Quicksand", sans-serif;
+        background-color: #f5f0eb;
+        line-height: 1.6;
+        padding: 0;
+        margin: 0;
+      }
+      /* Navigation */
+      nav {
+        background-color: white;
+        box-shadow: var(--shadow);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
 
-        .contact-form{
-            width: 100%;
-            padding-bottom: 10px;
-        }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        .contact-form label{
-            display: block;
-            padding: 5px;
-            font-weight: 600;
-        }
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        color: var(--accent);
+        font-weight: bold;
+      }
 
-        .contact-form input {
-            padding: 10px;
-            width: 100%;
-            background-color: #f3e8e3;
-            color: #353535;
-            border-style: none;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: box-shadow 0.2s;
-        }
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
 
-        .select {
-            padding: 12px 16px;
-            width: 100%;
-            background-color: #f3e8e3;
-            color: #353535;
-            border: 1.5px solid #e0d4d4;
-            border-radius: 8px;
-            font-size: 16px;
-            font-family: 'Poppins', sans-serif;
-            appearance: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background-image: linear-gradient(45deg, transparent 50%, #6b4e41 50%),
-              linear-gradient(135deg, #6b4e41 50%, transparent 50%);
-            background-position: calc(100% - 20px) center, calc(100% - 15px)           center;
-            background-size: 5px 5px, 5px 5px;
-            background-repeat: no-repeat;
-        }
+      .nav-links li {
+        margin-left: 30px;
+      }
 
-        .select:focus {
-            outline: none;
-        }
+      .nav-links a {
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 600;
+        transition: color 0.3s;
+      }
 
-        .select option {
-            color: #3e2f2c;
-        }
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+      }
 
-        .contact-form input:focus{
-            outline: none;
-            box-shadow: none;
-        }
+      .nav-icon {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+      }
 
-        .contact-form div{
-            margin-bottom: 5px;
-        }
-        .contact-form input:focus::placeholder{
-            color: transparent;
-        }
-        .btn {
-            margin-top: 10px;
-            padding: 10px;
-            width: 100%;
-            border-radius: 5px;
-            border-style: none;
-            background-color: #a9746e;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .btn:hover {
-            background-color: #553c31;
-        }
+      h2 {
+        font-size: 32px;
+        font-weight: bolder;
+      }
 
-        input::placeholder,
-        textarea::placeholder,
-        select::placeholder {
-        color: #a89b96; 
+      .section {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        max-width: 500px;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        color: #4e342e;
+        padding: 25px;
+        background-color: #fffdfb;
+        box-shadow: 1px 1px 15px rgb(228, 228, 228);
+        border-radius: 12px;
+        margin: 40px auto;
+      }
+
+      .contact-form {
+        width: 100%;
+        padding-bottom: 10px;
+      }
+
+      .contact-form label {
+        display: block;
+        padding: 5px;
+        font-weight: 600;
+      }
+
+      .contact-form input {
+        padding: 10px;
+        width: 100%;
+        background-color: #f3e8e3;
+        color: #353535;
+        border-style: none;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: box-shadow 0.2s;
+      }
+
+      .select {
+        padding: 12px 16px;
+        width: 100%;
+        background-color: #f3e8e3;
+        color: #353535;
+        border: 1.5px solid #e0d4d4;
+        border-radius: 8px;
+        font-size: 16px;
+        font-family: "Poppins", sans-serif;
+        appearance: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background-image: linear-gradient(45deg, transparent 50%, #6b4e41 50%),
+          linear-gradient(135deg, #6b4e41 50%, transparent 50%);
+        background-position: calc(100% - 20px) center, calc(100% - 15px) center;
+        background-size: 5px 5px, 5px 5px;
+        background-repeat: no-repeat;
+      }
+
+      .select:focus {
+        outline: none;
+      }
+
+      .select option {
+        color: #3e2f2c;
+      }
+
+      .contact-form input:focus {
+        outline: none;
+        box-shadow: none;
+      }
+
+      /* .contact-form input::placeholder{
+            color: #aaa;
+        } */
+      .contact-form div {
+        margin-bottom: 5px;
+      }
+      .contact-form input:focus::placeholder {
+        color: transparent;
+      }
+      .btn {
+        margin-top: 10px;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        border-style: none;
+        background-color: #a9746e;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .btn:hover {
+        background-color: #553c31;
+      }
+
+      input::placeholder,
+      textarea::placeholder,
+      select::placeholder {
+        color: #a89b96;
         font-style: italic;
-        opacity: 1; 
+        opacity: 1;
+      }
+
+      section textarea {
+        padding: 5px 5px;
+        background-color: #f3e8e3;
+        width: 100%;
+        resize: none;
+        border-style: none;
+        font-family: inherit;
+        color: #353535;
+        font-size: 16px;
+        border-radius: 5px;
+        padding: 10px;
+      }
+      footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 40px;
+      }
+
+      .social-links {
+        margin: 15px 0;
+      }
+
+      .social-links a {
+        color: white;
+        font-size: 24px;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: var(--primary);
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 20px;
+          height: auto;
+          align-items: flex-start;
         }
 
-        section textarea{
-            padding: 5px 5px;
-            background-color: #f3e8e3;
-            width: 100%;
-            resize: none;
-            border-style: none;
+        .section {
+          width: 100%;
+          max-width: 100%;
+          box-shadow: none;
+          border-radius: 8px;
+          padding: 15px;
         }
 
-        @media (max-width: 480px) {
-            .section {
-            padding: 20px;
+        h2 {
+          font-size: 24px;
+          text-align: center;
         }
 
         .btn {
-            width: 100%;
+          width: 100%;
+          font-size: 16px;
         }
-  }
+
+        .contact-form input,
+        .select,
+        textarea {
+          font-size: 14px;
+          padding: 10px;
+        }
+
+        .nav-container {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+
+        .brand {
+          flex-direction: row;
+          align-items: center;
+        }
+
+        .logo {
+          font-size: 1.5rem;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+          margin-top: 10px;
+          padding-left: 0;
+        }
+
+        .nav-links li {
+          margin: 10px 10px 0 0;
+        }
+
+        .nav-links a {
+          font-size: 14px;
+        }
+
+        .nav-icon {
+          width: 28px;
+          height: 28px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        html {
+          font-size: 14px;
+        }
+
+        .nav-container {
+          padding: 10px 15px;
+        }
+
+        .logo {
+          font-size: 1.3rem;
+        }
+
+        .nav-icon {
+          width: 24px;
+          height: 24px;
+          margin-right: 8px;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container">
+        <div class="brand">
+          <img
+            src="assets/favicon_io/favicon-32x32.png"
+            alt="Logo Icon"
+            class="nav-icon"
+          />
+          <div class="logo">Nami's Cake and Bake</div>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cakes.html">Cakes</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
     <section class="section" id="contact-form">
-        <h2 class="section-title">Class Registration</h2>
-        <form class="contact-form" action="https://getform.io/f/bllyvdqb" method="POST">
-            <div>
-            <label for="name">Your Name</label>
-            <input type="text" id="name" placeholder="Enter your name" name="name" required>
-          </div>
-          
-          <div>
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="Enter Email" name="email" required>
-          </div>
-          
-          <div>
-            <label for="phone">Contact Number</label>
-            <input type="tel" id="phone" placeholder="xxxxx xxxxx" name="phone" required>
-          </div>
-          
-          <div>
-            <label for="class-type">Class Type</label>
-            <select id="class-type" name="class-type" class="select" required>
-              <option value="">Select a class...</option>
-              <option value="north-indian">North Indian Cooking</option>
-              <option value="south-indian">South Indian Cooking</option>
-              <option value="cake-basics">Cake Basics</option>
-              <option value="bread-making">Bread Making</option>
-              <option value="indian-snacks">Indian Snacks</option>
-              <option value="kids-cookie">Kids Cookie Decorating</option>
-              <option value="kids-cupcake">Kids Cupcake Workshop</option>
-              <option value="ice-cream">Ice Cream Making</option>
-              <option value="birthday-party">Birthday Party</option>
-              <option value="holiday-camp">Holiday Baking Camp</option>
-            </select>
-          </div>
-          
-          <div>
-            <label for="participants">Number of Participants</label>
-            <input type="number" id="participants" name="participants" min="1" required>
-          </div>
-          
-          <div>
-            <label for="message">Additional Notes</label>
-            <textarea id="message" name="message" placeholder="Type here" rows="4"></textarea>
-          </div>
-          
-          <button type="submit" class="btn">Submit Registration</button>
-        </form>
-      </section>
-</body>
+      <h2 class="section-title">Class Registration</h2>
+      <form
+        class="contact-form"
+        action="https://getform.io/f/bllyvdqb"
+        method="POST"
+      >
+        <div>
+          <label for="name">Your Name</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            name="name"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter Email"
+            name="email"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="phone">Contact Number</label>
+          <input
+            type="tel"
+            id="phone"
+            placeholder="xxxxx xxxxx"
+            name="phone"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="class-type">Class Type</label>
+          <select id="class-type" name="class-type" class="select" required>
+            <option value="">Select a class...</option>
+            <option value="north-indian">North Indian Cooking</option>
+            <option value="south-indian">South Indian Cooking</option>
+            <option value="cake-basics">Cake Basics</option>
+            <option value="bread-making">Bread Making</option>
+            <option value="indian-snacks">Indian Snacks</option>
+            <option value="kids-cookie">Kids Cookie Decorating</option>
+            <option value="kids-cupcake">Kids Cupcake Workshop</option>
+            <option value="ice-cream">Ice Cream Making</option>
+            <option value="birthday-party">Birthday Party</option>
+            <option value="holiday-camp">Holiday Baking Camp</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="participants">Number of Participants</label>
+          <input
+            type="number"
+            id="participants"
+            name="participants"
+            min="1"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="message">Additional Notes</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Type here"
+            rows="4"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn">Submit Registration</button>
+      </form>
+    </section>
+    <!-- Footer -->
+    <footer>
+      <p>Follow us @namis_cakenbake_</p>
+      <div class="social-links">
+        <a href="https://instagram.com/namis_cakenbake_" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://wa.me/918767542742" target="_blank"
+          ><i class="fab fa-whatsapp"></i
+        ></a>
+      </div>
+      <p>&copy; 2023 Nami's Cake and Bake</p>
+    </footer>
+  </body>
 </html>
