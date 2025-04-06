@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nami's Cake and Bake - Home</title>
+  <link rel="shortcut icon" href="assets/favicon_io/favicon-32x32.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary: #FF7E7E;
+      --secondary: #F9D5D3;
+      --accent: #5C4033;
+      --light: #FFF4E6;
+      --dark: #3C3C3C;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    /* Navigation */
+    nav {
+      background-color: white;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 30px;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.1)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+      background-size: 100% 100%;
+      opacity: 0.3;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: white;
+      color: var(--primary);
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+      box-shadow: var(--shadow);
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    /* Services Section */
+    .section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      font-family: 'Playfair Display', serif;
+      color: var(--accent);
+      font-size: 2.5rem;
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 3px;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+    
+    .service-img {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .service-card:hover .service-img img {
+      transform: scale(1.1);
+    }
+    
+    .service-content {
+      padding: 25px;
+    }
+    
+    .service-content h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--accent);
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+    
+    /* Testimonials */
+    .testimonials {
+      background-color: var(--secondary);
+      padding: 80px 20px;
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .testimonial-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 15px;
+    }
+    
+    .author-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .author-info h4 {
+      color: var(--accent);
+      margin-bottom: 5px;
+    }
+    
+    /* CTA Section */
+    .cta {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    
+    .cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .cta p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary);
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--accent);
+      color: white;
+      padding: 60px 20px 30px;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+    
+    .footer-col h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--secondary);
+    }
+    
+    .social-links {
+      display: flex;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      margin-right: 10px;
+      color: white;
+      transition: all 0.3s;
+    }
+    
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+      }
+      
+      .nav-links {
+        margin-top: 20px;
+      }
+      
+      .nav-links li {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Nami's Cake and Bake</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cakes.html">Cakes</a></li>
+        <li><a href="classes.html">Classes</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Custom Cakes & Baking Classes</h1>
+      <p>Handcrafted with love since 2015. Celebrate your special moments with our delicious creations or learn to bake them yourself!</p>
+      <a href="#services" class="btn">Explore Our Services</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section" id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Custom Cakes">
+        </div>
+        <div class="service-content">
+          <h3>Custom Cakes</h3>
+          <p>Beautifully designed cakes for birthdays, weddings, and all special occasions. Customized to your preferences and dietary needs.</p>
+          <a href="cakes.html" class="btn" style="margin-top: 15px; display: inline-block;">View Gallery</a>
+        </div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Baking Classes">
+        </div>
+        <div class="service-content">
+          <h3>Baking Classes</h3>
+          <p>Learn the art of baking from basic cookies to elaborate cakes. We offer classes for all skill levels in a fun, welcoming environment.</p>
+          <a href="classes.html" class="btn" style="margin-top: 15px; display: inline-block;">View Schedule</a>
+        </div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cooking Classes">
+        </div>
+        <div class="service-content">
+          <h3>Cooking Classes</h3>
+          <p>Master Indian cuisine with our specialized classes covering North Indian, South Indian, and snack preparations.</p>
+          <a href="classes.html" class="btn" style="margin-top: 15px; display: inline-block;">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2 class="section-title" style="color: var(--accent);">What Our Customers Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-text">
+          "Nami's birthday cake for my daughter was absolutely stunning! The design was perfect and it tasted even better than it looked."
+        </div>
+        <div class="testimonial-author">
+          <div class="author-img">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Priya Sharma">
+          </div>
+          <div class="author-info">
+            <h4>Priya Sharma</h4>
+            <p>Happy Customer</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-text">
+          "I attended the South Indian cooking class and learned so much! The instructor was patient and knowledgeable. Can't wait to try more classes."
+        </div>
+        <div class="testimonial-author">
+          <div class="author-img">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rahul Mehta">
+          </div>
+          <div class="author-info">
+            <h4>Rahul Mehta</h4>
+            <p>Cooking Class Student</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-text">
+          "Our wedding cake was everything we dreamed of! Nami listened to all our ideas and created a masterpiece that our guests are still talking about."
+        </div>
+        <div class="testimonial-author">
+          <div class="author-img">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ananya & Vikram">
+          </div>
+          <div class="author-info">
+            <h4>Ananya & Vikram</h4>
+            <p>Wedding Clients</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta" id="contact">
+    <h2>Ready to Order or Join a Class?</h2>
+    <p>Get in touch with us to discuss your custom cake requirements or to book your spot in our next baking/cooking class.</p>
+    <a href="contact.html" class="btn btn-outline">Contact Us</a>
+  </section>
+
+  
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Nami's Cake and Bake</h3>
+        <p>Creating delicious memories since 2015 through custom cakes and baking classes.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/_yash1405/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/918767542742" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cakes.html">Custom Cakes</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Contact Info</h3>
+        <ul class="footer-links">
+          <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Baker Street, City</li>
+          <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +91 87675427442</li>
+          <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> namiscakeandbake@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      &copy; 2023 Nami's Cake and Bake. All rights reserved.
+    </div>
+</footer>
+
+<script>
+  document.getElementById('myContactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get the form data
+    const formData = new FormData(this);
+    
+    // Send to getform.io
+    fetch('https://getform.io/f/bllyvdqb', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        // Show notification
+        document.getElementById('form-notification').style.display = 'block';
+        // Reset form
+        this.reset();
+        // Hide notification after 5 seconds
+        setTimeout(() => {
+          document.getElementById('form-notification').style.display = 'none';
+        }, 5000);
+      } else {
+        alert('There was an error sending your message. Please try again.');
+      }
+    })
+    .catch(error => {
+      alert('There was an error sending your message. Please try again.');
+    });
+  });
+</script>
+</body>
+</html>
