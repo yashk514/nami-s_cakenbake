@@ -1,567 +1,832 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Baking & Cooking Classes | Nami's Cake and Bake</title>
-        <link rel="shortcut icon" href="assets/favicon_io/favicon-32x32.png" type="image/x-icon">
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="styles.css">
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    </head>
-<body>
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      <div class="logo">Nami's Cake and Bake</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="cakes.html">Cakes</a></li>
-        <li><a href="classes.html" class="active">Classes</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="classes-hero">
-    <h1>Baking & Cooking Classes</h1>
-    <p>Learn from the experts! Join our fun and interactive classes designed for all skill levels - from beginners to aspiring chefs.</p>
-  </section>
-
-  <!-- Tabs Navigation -->
-  <div class="tabs">
-    <button class="tab-btn active" data-tab="indian">Indian Cuisine</button>
-    <button class="tab-btn" data-tab="baking">Baking</button>
-    <button class="tab-btn" data-tab="snacks">Snacks</button>
-    <button class="tab-btn" data-tab="kids">Kids Classes</button>
-  </div>
-
-  <!-- Classes Sections -->
-  <div class="classes-section">
-    <!-- Indian Cuisine Tab -->
-    <div class="tab-content active" id="indian">
-      <h2 style="text-align: center; font-family: 'Playfair Display', serif; color: var(--accent); margin-bottom: 20px;">Indian Cuisine Classes</h2>
-      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Master the art of Indian cooking with our specialized classes covering regional cuisines from across the country.</p>
-      
-      <div class="class-categories">
-        <!-- North Indian -->
-        <div class="class-card">
-          <div class="class-img">
-            <img src="assets/NorthIndianClassic.webp" alt="North Indian Cuisine - Butter Chicken and Naan">
-          </div>
-          <div class="class-info">
-            <h3>North Indian Classics</h3>
-            <div class="class-meta">
-              <span><i class="far fa-clock"></i> 3 Hours</span>
-              <span><i class="fas fa-user-friends"></i> Max 8 Students</span>
-            </div>
-            <p class="class-description">Learn to make authentic North Indian dishes including butter chicken, dal makhani, naan, and more.</p>
-            <span class="price">₹1,500 per session</span>
-            <button class="btn book-now" data-calendly-url="https://calendly.com/yashkumbhoje2005">Book Now</button>
-          </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baking & Cooking Classes | Nami's Cake and Bake</title>
+    <link
+      rel="shortcut icon"
+      href="assets/favicon_io/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      type="text/javascript"
+      async
+    ></script>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="brand">
+          <img
+            src="assets/favicon_io/favicon-32x32.png"
+            alt="Logo Icon"
+            class="nav-icon"
+          />
+          <div class="logo">Nami's Cake and Bake</div>
         </div>
-        
-        <!-- South Indian -->
-        <div class="class-card">
-          <div class="class-img">
-            <img src="assets/SouthIndianDelight.jpg" alt="South Indian Cuisine - Dosa and Sambar">
-          </div>
-          <div class="class-info">
-            <h3>South Indian Delights</h3>
-            <div class="class-meta">
-              <span><i class="far fa-clock"></i> 3 Hours</span>
-              <span><i class="fas fa-user-friends"></i> Max 8 Students</span>
-            </div>
-            <p class="class-description">Master the art of dosa, idli, sambar, and other South Indian specialties.</p>
-            <span class="price">₹1,500 per session</span>
-            <button class="btn book-now" data-calendly-url="https://calendly.com/yashkumbhoje2005">Book Now</button>
-          </div>
-        </div>
-        
-        <!-- Thali Making -->
-        <div class="class-card">
-          <div class="class-img">
-            <img src="assets/Thali.avif" alt="Indian Thali with multiple dishes">
-          </div>
-          <div class="class-info">
-            <h3>Complete Thali Workshop</h3>
-            <div class="class-meta">
-              <span><i class="far fa-clock"></i> 4 Hours</span>
-              <span><i class="fas fa-user-friends"></i> Max 6 Students</span>
-            </div>
-            <p class="class-description">Learn to prepare a balanced Indian thali with dal, sabzi, roti, rice, raita, and dessert.</p>
-            <span class="price">₹2,000 per session</span>
-            <button class="btn book-now" data-calendly-url="https://calendly.com/yashkumbhoje2005">Book Now</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-
-    <!-- Baking Tab -->
-    <div class="tab-content" id="baking">
-      <h2 style="text-align: center; font-family: 'Playfair Display', serif; color: var(--accent); margin-bottom: 20px;">Baking Classes</h2>
-      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">From basic cookies to elaborate cakes, our baking classes will turn you into a confident baker.</p>
-      
-      <div class="class-categories">
-        <!-- Cake Basics -->
-        <div class="class-card">
-          <div class="class-img">
-            <img src="assets/CakeBasics.webp" alt="Decorated birthday cake">
-          </div>
-          <div class="class-info">
-            <h3>Cake Basics</h3>
-            <div class="class-meta">
-              <span><i class="far fa-clock"></i> 3 Hours</span>
-              <span><i class="fas fa-user-friends"></i> Max 8 Students</span>
-            </div>
-            <p class="class-description">Learn the fundamentals of cake making - sponges, buttercream, and simple decorations.</p>
-            <span class="price">₹1,800 per session</span>
-            <button class="btn book-now" data-calendly-url="https://calendly.com/yashkumbhoje2005">Book Now</button>
-          </div>
-        </div>
-        
-        <!-- Bread Making -->
-        <div class="class-card">
-          <div class="class-img">
-            <img src="assets/ArtisanBread.jpg" alt="Freshly baked artisan bread">
-          </div>
-          <div class="class-info">
-            <h3>Artisan Bread Making</h3>
-            <div class="class-meta">
-              <span><i class="far fa-clock"></i> 4 Hours</span>
-              <span><i class="fas fa-user-friends"></i> Max 6 Students</span>
-            </div>
-            <p class="class-description">Master the art of bread making including sourdough, focaccia, and dinner rolls.</p>
-            <span class="price">₹2,200 per session</span>
-            <button class="btn book-now" data-calendly-url="https://calendly.com/yashkumbhoje2005">Book Now</button>
-          </div>
-        </div>
-        
-        <!-- Pastry Workshop -->
-        <div class="class-card">
-          <div class="class-img">
-            <img src="assets/Pastry.jpg" alt="Assorted pastries on display">
-          </div>
-          <div class="class-info">
-            <h3>Pastry Workshop</h3>
-            <div class="class-meta">
-              <span><i class="far fa-clock"></i> 3.5 Hours</span>
-              <span><i class="fas fa-user-friends"></i> Max 6 Students</span>
-            </div>
-            <p class="class-description">Learn to make puff pastry, croissants, danishes, and other flaky delights.</p>
-            <span class="price">₹2,500 per session</span>
-            <button class="btn book-now" data-calendly-url="https://calendly.com/yashkumbhoje2005">Book Now</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Snacks Tab -->
-    <div class="tab-content" id="snacks">
-      <h2 style="text-align: center; font-family: 'Playfair Display', serif; color: var(--accent); margin-bottom: 20px;">Snacks & Quick Bites</h2>
-      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Perfect your snack game with these quick, delicious recipes perfect for any occasion.</p>
-      
-      <div class="class-categories">
-        <!-- Indian Snacks -->
-        <div class="class-card">
-          <div class="class-img">
-            <img src="assets/TeaTimeSnack.webp" alt="Indian snacks including samosas and pakoras">
-          </div>
-          <div class="class-info">
-            <h3>Indian Tea-Time Snacks</h3>
-            <div class="class-meta">
-              <span><i class="far fa-clock"></i> 2.5 Hours</span>
-              <span><i class="fas fa-user-friends"></i> Max 10 Students</span>
-            </div>
-            <p class="class-description">Learn to make samosas, pakoras, chakli, and other popular Indian snacks.</p>
-            <span class="price">₹1,200 per session</span>
-            <button class="btn book-now" data-calendly-url="https://calendly.com/yashkumbhoje2005">Book Now</button>
-          </div>
-        </div>
-        
-        <!-- Healthy Snacks -->
-        <div class="class-card">
-          <div class="class-img">
-            <img src="assets/HealthySnack.webp" alt="Healthy vegetable snacks">
-          </div>
-          <div class="class-info">
-            <h3>Healthy Snack Alternatives</h3>
-            <div class="class-meta">
-              <span><i class="far fa-clock"></i> 2 Hours</span>
-              <span><i class="fas fa-user-friends"></i> Max 10 Students</span>
-            </div>
-            <p class="class-description">Delicious and nutritious snack options for health-conscious individuals.</p>
-            <span class="price">₹1,500 per session</span>
-            <button class="btn book-now" data-calendly-url="https://calendly.com/yashkumbhoje2005">Book Now</button>
-          </div>
-        </div>
-        
-        <!-- International Snacks -->
-        <div class="class-card">
-          <div class="class-img">
-            <img src="assets/InternationalSnack.webp" alt="International snacks from different cuisines">
-          </div>
-          <div class="class-info">
-            <h3>International Snacks</h3>
-            <div class="class-meta">
-              <span><i class="far fa-clock"></i> 3 Hours</span>
-              <span><i class="fas fa-user-friends"></i> Max 8 Students</span>
-            </div>
-            <p class="class-description">Explore global snack favorites from spring rolls to bruschetta and more.</p>
-            <span class="price">₹1,800 per session</span>
-            <button class="btn book-now" data-calendly-url="https://calendly.com/yashkumbhoje2005">Book Now</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Kids Classes Tab -->
-    <div class="tab-content" id="kids">
-      <h2 style="text-align: center; font-family: 'Playfair Display', serif; color: var(--accent); margin-bottom: 20px;">Kids Baking Classes</h2>
-      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Fun, safe, and educational baking experiences designed especially for young chefs!</p>
-      
-      <div class="class-categories">
-        <!-- Cookie Decorating -->
-        <div class="class-card">
-          <div class="class-img">
-            <img src="assets/CookieDecorating.jpg" alt="Kids decorating cookies">
-          </div>
-          <div class="class-info">
-            <h3>Cookie Decorating</h3>
-            <div class="class-meta">
-              <span><i class="far fa-clock"></i> 2 Hours</span>
-              <span><i class="fas fa-user-friends"></i> Max 6 Students</span>
-              <span><i class="fas fa-child"></i> Ages 6-12</span>
-            </div>
-            <p class="class-description">Kids learn to decorate cookies with royal icing and edible decorations.</p>
-            <span class="price">₹1,000 per session</span>
-            <button class="btn book-now" data-calendly-url="https://calendly.com/yashkumbhoje2005">Book Now</button>
-          </div>
-        </div>
-        
-        <!-- Cupcake Workshop -->
-        <div class="class-card">
-          <div class="class-img">
-            <img src="assets/cupcakeworkshop.webp" alt="Colorful cupcakes decorated by kids">
-          </div>
-          <div class="class-info">
-            <h3>Cupcake Workshop</h3>
-            <div class="class-meta">
-              <span><i class="far fa-clock"></i> 2.5 Hours</span>
-              <span><i class="fas fa-user-friends"></i> Max 6 Students</span>
-              <span><i class="fas fa-child"></i> Ages 8-14</span>
-            </div>
-            <p class="class-description">From baking to decorating, kids make their own creative cupcakes.</p>
-            <span class="price">₹1,200 per session</span>
-            <button class="btn book-now" data-calendly-url="https://calendly.com/yashkumbhoje2005">Book Now</button>
-          </div>
-        </div>
-        
-        <!-- Ice Cream Making -->
-        <div class="class-card">
-          <div class="class-img">
-            <img src="assets/IceCreamParty.jpeg" alt="Kids making ice cream">
-          </div>
-          <div class="class-info">
-            <h3>Ice Cream Party</h3>
-            <div class="class-meta">
-              <span><i class="far fa-clock"></i> 2 Hours</span>
-              <span><i class="fas fa-user-friends"></i> Max 8 Students</span>
-              <span><i class="fas fa-child"></i> All Ages</span>
-            </div>
-            <p class="class-description">Learn to make no-churn ice cream with fun mix-ins and toppings.</p>
-            <span class="price">₹1,500 per session</span>
-            <button class="btn book-now" data-calendly-url="https://calendly.com/yashkumbhoje2005">Book Now</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Kids Special Section -->
-  <section class="kids-section">
-    <div class="kids-container">
-      <h2>Special Kids Programs</h2>
-      <div class="class-categories">
-        <!-- Birthday Parties -->
-        <div class="class-card">
-          <div class="class-img">
-            <img src="assets/birthdayparty.jpg" alt="Kids birthday party with cake">
-          </div>
-          <div class="class-info">
-            <h3>Birthday Parties</h3>
-            <div class="class-meta">
-              <span><i class="far fa-clock"></i> 3 Hours</span>
-              <span><i class="fas fa-user-friends"></i> Up to 12 Kids</span>
-            </div>
-            <p class="class-description">Celebrate birthdays with a fun baking activity! Choose from cookie decorating, cupcake making, or pizza parties.</p>
-            <span class="price">₹5,000 per party</span>
-            <button class="btn book-now" data-calendly-url="https://calendly.com/yashkumbhoje2005">Book Now</button>
-          </div>
-        </div>
-        
-        <!-- Holiday Camps -->
-        <div class="class-card">
-          <div class="class-img">
-            <img src="assets/HolidayBakingCamp.jpg" alt="Kids in baking class">
-          </div>
-          <div class="class-info">
-            <h3>Holiday Baking Camps</h3>
-            <div class="class-meta">
-              <span><i class="far fa-calendar-alt"></i> 5-Day Program</span>
-              <span><i class="fas fa-user-friends"></i> Max 8 Students</span>
-            </div>
-            <p class="class-description">Week-long camps during school holidays covering different baking techniques each day.</p>
-            <span class="price">₹6,000 per child</span>
-            <button class="btn book-now" data-calendly-url="https://calendly.com/yashkumbhoje2005">Book Now</button>
-          </div>
-        </div>
-        
-        <!-- Parent-Child Classes -->
-        <div class="class-card">
-          <div class="class-img">
-            <img src="assets/ParentChildBaking.jpg" alt="Parent and child baking together">
-          </div>
-          <div class="class-info">
-            <h3>Parent-Child Baking</h3>
-            <div class="class-meta">
-              <span><i class="far fa-clock"></i> 2.5 Hours</span>
-              <span><i class="fas fa-user-friends"></i> 1 Adult + 1 Child</span>
-            </div>
-            <p class="class-description">Special bonding classes where parents and children bake together.</p>
-            <span class="price">₹2,500 per pair</span>
-            <button class="btn book-now" data-calendly-url="https://calendly.com/yashkumbhoje2005">Book Now</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="testimonials">
-    <div class="section-header">
-      <h2>What Our Students Say</h2>
-      <div class="divider">
-        <div class="divider-line"></div>
-        <div class="divider-icon"><i class="fas fa-heart"></i></div>
-        <div class="divider-line"></div>
-      </div>
-      <p class="section-subtitle">Hear from our happy baking enthusiasts</p>
-    </div>
-    
-    <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <div class="quote-icon">
-          <i class="fas fa-quote-left"></i>
-        </div>
-        <div class="testimonial-text">
-          "My daughter attended the kids cupcake class and had an amazing time! She came home so proud of her creations and has been baking non-stop since."
-        </div>
-        <div class="testimonial-author">
-          <div class="author-img">
-            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Priya M.">
-          </div>
-          <div class="author-info">
-            <h4>Priya M.</h4>
-            <p>Parent</p>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="testimonial-card">
-        <div class="quote-icon">
-          <i class="fas fa-quote-left"></i>
-        </div>
-        <div class="testimonial-text">
-          "The South Indian cooking class was fantastic! I learned so many techniques I can use in my everyday cooking. The instructor was patient and knowledgeable."
-        </div>
-        <div class="testimonial-author">
-          <div class="author-img">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rahul K.">
-          </div>
-          <div class="author-info">
-            <h4>Rahul K.</h4>
-            <p>Cooking Student</p>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star-half-alt"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="testimonial-card">
-        <div class="quote-icon">
-          <i class="fas fa-quote-left"></i>
-        </div>
-        <div class="testimonial-text">
-          "I've taken three baking classes so far and each one has been better than the last. The small class size means you get plenty of individual attention."
-        </div>
-        <div class="testimonial-author">
-          <div class="author-img">
-            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Ananya S.">
-          </div>
-          <div class="author-info">
-            <h4>Ananya S.</h4>
-            <p>Baking Student</p>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Registration CTA -->
-  <section class="registration-cta">
-    <h2>Ready to Join a Class?</h2>
-    <p>Spaces fill up quickly! Contact us today to reserve your spot or to ask any questions about our classes.</p>
-    <a href="#contact-form" class="btn">Register Now</a>
-  </section>
-
-  
-
-  <footer>
-    <div class="footer-container">
-      <div class="footer-col">
-        <h3>Nami's Cake and Bake</h3>
-        <p>Bringing joy through baking and cooking since 2010. Our classes are designed to inspire creativity and build confidence in the kitchen.</p>
-        <div class="social-links">
-          <a href="https://www.instagram.com/_yash1405/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-          <a href="https://wa.me/918767542742" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
-        </div>
-      </div>
-      
-      <div class="footer-col">
-        <h3>Quick Links</h3>
-        <ul class="footer-links">
+        <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="cakes.html">Our Cakes</a></li>
+          <li><a href="cakes.html">Cakes</a></li>
           <li><a href="classes.html">Classes</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="#">FAQ</a></li>
         </ul>
       </div>
-      
-      <div class="footer-col">
-        <h3>Class Categories</h3>
-        <ul class="footer-links">
-          <li><a href="classes.html#indian">Indian Cuisine</a></li>
-          <li><a href="classes.html#baking">Baking Classes</a></li>
-          <li><a href="classes.html#snacks">Snacks & Quick Bites</a></li>
-          <li><a href="classes.html#kids">Kids Classes</a></li>
-          <li><a href="#">Private Events</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-col">
-        <h3>Contact Us</h3>
-        <ul class="footer-links">
-          <li><i class="fas fa-map-marker-alt"></i> 123 Bakery Street, Mumbai</li>
-          <li><i class="fas fa-phone"></i> +91 87675427442</li>
-          <li><i class="fas fa-envelope"></i> info@namiscakeandbake.com</li>
-          <li><i class="fas fa-clock"></i> Mon-Sat: 9am-7pm</li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="copyright">
-      <p>&copy; 2023 Nami's Cake and Bake. All Rights Reserved.</p>
-    </div>
-  </footer>
+    </nav>
 
-  <script>
-    // Tab functionality
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-    
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Remove active class from all buttons and contents
-        tabBtns.forEach(btn => btn.classList.remove('active'));
-        tabContents.forEach(content => content.classList.remove('active'));
-        
-        // Add active class to clicked button
-        btn.classList.add('active');
-        
-        // Show corresponding content
-        const tabId = btn.getAttribute('data-tab');
-        document.getElementById(tabId).classList.add('active');
-      });
-    });
-    
-    // Form submission
-    const form = document.querySelector('form');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      fetch(this.action, {
-        method: 'POST',
-        body: new FormData(this),
-        headers: {
-          'Accept': 'application/json'
-        }
-      })
-        .then(response => {
-          if (response.ok) {
-            alert('Thank you! We will contact you shortly to confirm your booking.');
-            form.reset();
-          } else {
-            alert('Oops! Something went wrong. Please try again.');
-          }
-        })
-        .catch(error => {
-          alert('Error: ' + error.message);
+    <!-- Hero Section -->
+    <section class="classes-hero">
+      <h1>Baking & Cooking Classes</h1>
+      <p>
+        Learn from the experts! Join our fun and interactive classes designed
+        for all skill levels - from beginners to aspiring chefs.
+      </p>
+    </section>
+
+    <!-- Tabs Navigation -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="indian">Indian Cuisine</button>
+      <button class="tab-btn" data-tab="baking">Baking</button>
+      <button class="tab-btn" data-tab="snacks">Snacks</button>
+      <button class="tab-btn" data-tab="kids">Kids Classes</button>
+    </div>
+
+    <!-- Classes Sections -->
+    <div class="classes-section">
+      <!-- Indian Cuisine Tab -->
+      <div class="tab-content active" id="indian">
+        <h2
+          style="
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+            margin-bottom: 20px;
+          "
+        >
+          Indian Cuisine Classes
+        </h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px">
+          Master the art of Indian cooking with our specialized classes covering
+          regional cuisines from across the country.
+        </p>
+
+        <div class="class-categories">
+          <!-- North Indian -->
+          <div class="class-card">
+            <div class="class-img">
+              <img
+                src="assets/NorthIndianClassic.webp"
+                alt="North Indian Cuisine - Butter Chicken and Naan"
+              />
+            </div>
+            <div class="class-info">
+              <h3>North Indian Classics</h3>
+              <div class="class-meta">
+                <span><i class="far fa-clock"></i> 3 Hours</span>
+                <span><i class="fas fa-user-friends"></i> Max 8 Students</span>
+              </div>
+              <p class="class-description">
+                Learn to make authentic North Indian dishes including butter
+                chicken, dal makhani, naan, and more.
+              </p>
+              <span class="price">₹1,500 per session</span>
+              <button
+                class="btn book-now"
+                data-calendly-url="https://calendly.com/yashkumbhoje2005"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+
+          <!-- South Indian -->
+          <div class="class-card">
+            <div class="class-img">
+              <img
+                src="assets/SouthIndianDelight.jpg"
+                alt="South Indian Cuisine - Dosa and Sambar"
+              />
+            </div>
+            <div class="class-info">
+              <h3>South Indian Delights</h3>
+              <div class="class-meta">
+                <span><i class="far fa-clock"></i> 3 Hours</span>
+                <span><i class="fas fa-user-friends"></i> Max 8 Students</span>
+              </div>
+              <p class="class-description">
+                Master the art of dosa, idli, sambar, and other South Indian
+                specialties.
+              </p>
+              <span class="price">₹1,500 per session</span>
+              <button
+                class="btn book-now"
+                data-calendly-url="https://calendly.com/yashkumbhoje2005"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Thali Making -->
+          <div class="class-card">
+            <div class="class-img">
+              <img
+                src="assets/Thali.avif"
+                alt="Indian Thali with multiple dishes"
+              />
+            </div>
+            <div class="class-info">
+              <h3>Complete Thali Workshop</h3>
+              <div class="class-meta">
+                <span><i class="far fa-clock"></i> 4 Hours</span>
+                <span><i class="fas fa-user-friends"></i> Max 6 Students</span>
+              </div>
+              <p class="class-description">
+                Learn to prepare a balanced Indian thali with dal, sabzi, roti,
+                rice, raita, and dessert.
+              </p>
+              <span class="price">₹2,000 per session</span>
+              <button
+                class="btn book-now"
+                data-calendly-url="https://calendly.com/yashkumbhoje2005"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Baking Tab -->
+      <div class="tab-content" id="baking">
+        <h2
+          style="
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+            margin-bottom: 20px;
+          "
+        >
+          Baking Classes
+        </h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px">
+          From basic cookies to elaborate cakes, our baking classes will turn
+          you into a confident baker.
+        </p>
+
+        <div class="class-categories">
+          <!-- Cake Basics -->
+          <div class="class-card">
+            <div class="class-img">
+              <img src="assets/CakeBasics.webp" alt="Decorated birthday cake" />
+            </div>
+            <div class="class-info">
+              <h3>Cake Basics</h3>
+              <div class="class-meta">
+                <span><i class="far fa-clock"></i> 3 Hours</span>
+                <span><i class="fas fa-user-friends"></i> Max 8 Students</span>
+              </div>
+              <p class="class-description">
+                Learn the fundamentals of cake making - sponges, buttercream,
+                and simple decorations.
+              </p>
+              <span class="price">₹1,800 per session</span>
+              <button
+                class="btn book-now"
+                data-calendly-url="https://calendly.com/yashkumbhoje2005"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Bread Making -->
+          <div class="class-card">
+            <div class="class-img">
+              <img
+                src="assets/ArtisanBread.jpg"
+                alt="Freshly baked artisan bread"
+              />
+            </div>
+            <div class="class-info">
+              <h3>Artisan Bread Making</h3>
+              <div class="class-meta">
+                <span><i class="far fa-clock"></i> 4 Hours</span>
+                <span><i class="fas fa-user-friends"></i> Max 6 Students</span>
+              </div>
+              <p class="class-description">
+                Master the art of bread making including sourdough, focaccia,
+                and dinner rolls.
+              </p>
+              <span class="price">₹2,200 per session</span>
+              <button
+                class="btn book-now"
+                data-calendly-url="https://calendly.com/yashkumbhoje2005"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Pastry Workshop -->
+          <div class="class-card">
+            <div class="class-img">
+              <img src="assets/Pastry.jpg" alt="Assorted pastries on display" />
+            </div>
+            <div class="class-info">
+              <h3>Pastry Workshop</h3>
+              <div class="class-meta">
+                <span><i class="far fa-clock"></i> 3.5 Hours</span>
+                <span><i class="fas fa-user-friends"></i> Max 6 Students</span>
+              </div>
+              <p class="class-description">
+                Learn to make puff pastry, croissants, danishes, and other flaky
+                delights.
+              </p>
+              <span class="price">₹2,500 per session</span>
+              <button
+                class="btn book-now"
+                data-calendly-url="https://calendly.com/yashkumbhoje2005"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Snacks Tab -->
+      <div class="tab-content" id="snacks">
+        <h2
+          style="
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+            margin-bottom: 20px;
+          "
+        >
+          Snacks & Quick Bites
+        </h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px">
+          Perfect your snack game with these quick, delicious recipes perfect
+          for any occasion.
+        </p>
+
+        <div class="class-categories">
+          <!-- Indian Snacks -->
+          <div class="class-card">
+            <div class="class-img">
+              <img
+                src="assets/TeaTimeSnack.webp"
+                alt="Indian snacks including samosas and pakoras"
+              />
+            </div>
+            <div class="class-info">
+              <h3>Indian Tea-Time Snacks</h3>
+              <div class="class-meta">
+                <span><i class="far fa-clock"></i> 2.5 Hours</span>
+                <span><i class="fas fa-user-friends"></i> Max 10 Students</span>
+              </div>
+              <p class="class-description">
+                Learn to make samosas, pakoras, chakli, and other popular Indian
+                snacks.
+              </p>
+              <span class="price">₹1,200 per session</span>
+              <button
+                class="btn book-now"
+                data-calendly-url="https://calendly.com/yashkumbhoje2005"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Healthy Snacks -->
+          <div class="class-card">
+            <div class="class-img">
+              <img
+                src="assets/HealthySnack.webp"
+                alt="Healthy vegetable snacks"
+              />
+            </div>
+            <div class="class-info">
+              <h3>Healthy Snack Alternatives</h3>
+              <div class="class-meta">
+                <span><i class="far fa-clock"></i> 2 Hours</span>
+                <span><i class="fas fa-user-friends"></i> Max 10 Students</span>
+              </div>
+              <p class="class-description">
+                Delicious and nutritious snack options for health-conscious
+                individuals.
+              </p>
+              <span class="price">₹1,500 per session</span>
+              <button
+                class="btn book-now"
+                data-calendly-url="https://calendly.com/yashkumbhoje2005"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+
+          <!-- International Snacks -->
+          <div class="class-card">
+            <div class="class-img">
+              <img
+                src="assets/InternationalSnack.webp"
+                alt="International snacks from different cuisines"
+              />
+            </div>
+            <div class="class-info">
+              <h3>International Snacks</h3>
+              <div class="class-meta">
+                <span><i class="far fa-clock"></i> 3 Hours</span>
+                <span><i class="fas fa-user-friends"></i> Max 8 Students</span>
+              </div>
+              <p class="class-description">
+                Explore global snack favorites from spring rolls to bruschetta
+                and more.
+              </p>
+              <span class="price">₹1,800 per session</span>
+              <button
+                class="btn book-now"
+                data-calendly-url="https://calendly.com/yashkumbhoje2005"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kids Classes Tab -->
+      <div class="tab-content" id="kids">
+        <h2
+          style="
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+            margin-bottom: 20px;
+          "
+        >
+          Kids Baking Classes
+        </h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px">
+          Fun, safe, and educational baking experiences designed especially for
+          young chefs!
+        </p>
+
+        <div class="class-categories">
+          <!-- Cookie Decorating -->
+          <div class="class-card">
+            <div class="class-img">
+              <img
+                src="assets/CookieDecorating.jpg"
+                alt="Kids decorating cookies"
+              />
+            </div>
+            <div class="class-info">
+              <h3>Cookie Decorating</h3>
+              <div class="class-meta">
+                <span><i class="far fa-clock"></i> 2 Hours</span>
+                <span><i class="fas fa-user-friends"></i> Max 6 Students</span>
+                <span><i class="fas fa-child"></i> Ages 6-12</span>
+              </div>
+              <p class="class-description">
+                Kids learn to decorate cookies with royal icing and edible
+                decorations.
+              </p>
+              <span class="price">₹1,000 per session</span>
+              <button
+                class="btn book-now"
+                data-calendly-url="https://calendly.com/yashkumbhoje2005"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Cupcake Workshop -->
+          <div class="class-card">
+            <div class="class-img">
+              <img
+                src="assets/cupcakeworkshop.webp"
+                alt="Colorful cupcakes decorated by kids"
+              />
+            </div>
+            <div class="class-info">
+              <h3>Cupcake Workshop</h3>
+              <div class="class-meta">
+                <span><i class="far fa-clock"></i> 2.5 Hours</span>
+                <span><i class="fas fa-user-friends"></i> Max 6 Students</span>
+                <span><i class="fas fa-child"></i> Ages 8-14</span>
+              </div>
+              <p class="class-description">
+                From baking to decorating, kids make their own creative
+                cupcakes.
+              </p>
+              <span class="price">₹1,200 per session</span>
+              <button
+                class="btn book-now"
+                data-calendly-url="https://calendly.com/yashkumbhoje2005"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Ice Cream Making -->
+          <div class="class-card">
+            <div class="class-img">
+              <img
+                src="assets/IceCreamParty.jpeg"
+                alt="Kids making ice cream"
+              />
+            </div>
+            <div class="class-info">
+              <h3>Ice Cream Party</h3>
+              <div class="class-meta">
+                <span><i class="far fa-clock"></i> 2 Hours</span>
+                <span><i class="fas fa-user-friends"></i> Max 8 Students</span>
+                <span><i class="fas fa-child"></i> All Ages</span>
+              </div>
+              <p class="class-description">
+                Learn to make no-churn ice cream with fun mix-ins and toppings.
+              </p>
+              <span class="price">₹1,500 per session</span>
+              <button
+                class="btn book-now"
+                data-calendly-url="https://calendly.com/yashkumbhoje2005"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kids Special Section -->
+    <section class="kids-section">
+      <div class="kids-container">
+        <h2>Special Kids Programs</h2>
+        <div class="class-categories">
+          <!-- Birthday Parties -->
+          <div class="class-card">
+            <div class="class-img">
+              <img
+                src="assets/birthdayparty.jpg"
+                alt="Kids birthday party with cake"
+              />
+            </div>
+            <div class="class-info">
+              <h3>Birthday Parties</h3>
+              <div class="class-meta">
+                <span><i class="far fa-clock"></i> 3 Hours</span>
+                <span><i class="fas fa-user-friends"></i> Up to 12 Kids</span>
+              </div>
+              <p class="class-description">
+                Celebrate birthdays with a fun baking activity! Choose from
+                cookie decorating, cupcake making, or pizza parties.
+              </p>
+              <span class="price">₹5,000 per party</span>
+              <button
+                class="btn book-now"
+                data-calendly-url="https://calendly.com/yashkumbhoje2005"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Holiday Camps -->
+          <div class="class-card">
+            <div class="class-img">
+              <img
+                src="assets/HolidayBakingCamp.jpg"
+                alt="Kids in baking class"
+              />
+            </div>
+            <div class="class-info">
+              <h3>Holiday Baking Camps</h3>
+              <div class="class-meta">
+                <span><i class="far fa-calendar-alt"></i> 5-Day Program</span>
+                <span><i class="fas fa-user-friends"></i> Max 8 Students</span>
+              </div>
+              <p class="class-description">
+                Week-long camps during school holidays covering different baking
+                techniques each day.
+              </p>
+              <span class="price">₹6,000 per child</span>
+              <button
+                class="btn book-now"
+                data-calendly-url="https://calendly.com/yashkumbhoje2005"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Parent-Child Classes -->
+          <div class="class-card">
+            <div class="class-img">
+              <img
+                src="assets/ParentChildBaking.jpg"
+                alt="Parent and child baking together"
+              />
+            </div>
+            <div class="class-info">
+              <h3>Parent-Child Baking</h3>
+              <div class="class-meta">
+                <span><i class="far fa-clock"></i> 2.5 Hours</span>
+                <span
+                  ><i class="fas fa-user-friends"></i> 1 Adult + 1 Child</span
+                >
+              </div>
+              <p class="class-description">
+                Special bonding classes where parents and children bake
+                together.
+              </p>
+              <span class="price">₹2,500 per pair</span>
+              <button
+                class="btn book-now"
+                data-calendly-url="https://calendly.com/yashkumbhoje2005"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <div class="section-header">
+        <h2>What Our Students Say</h2>
+        <div class="divider">
+          <div class="divider-line"></div>
+          <div class="divider-icon"><i class="fas fa-heart"></i></div>
+          <div class="divider-line"></div>
+        </div>
+        <p class="section-subtitle">Hear from our happy baking enthusiasts</p>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <div class="testimonial-text">
+            "My daughter attended the kids cupcake class and had an amazing
+            time! She came home so proud of her creations and has been baking
+            non-stop since."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-img">
+              <img
+                src="https://randomuser.me/api/portraits/women/43.jpg"
+                alt="Priya M."
+              />
+            </div>
+            <div class="author-info">
+              <h4>Priya M.</h4>
+              <p>Parent</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <div class="testimonial-text">
+            "The South Indian cooking class was fantastic! I learned so many
+            techniques I can use in my everyday cooking. The instructor was
+            patient and knowledgeable."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-img">
+              <img
+                src="https://randomuser.me/api/portraits/men/32.jpg"
+                alt="Rahul K."
+              />
+            </div>
+            <div class="author-info">
+              <h4>Rahul K.</h4>
+              <p>Cooking Student</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <div class="testimonial-text">
+            "I've taken three baking classes so far and each one has been better
+            than the last. The small class size means you get plenty of
+            individual attention."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-img">
+              <img
+                src="https://randomuser.me/api/portraits/women/65.jpg"
+                alt="Ananya S."
+              />
+            </div>
+            <div class="author-info">
+              <h4>Ananya S.</h4>
+              <p>Baking Student</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Registration CTA -->
+    <section class="cta" id="contact">
+      <h2>Ready to Join a Class?</h2>
+      <p>
+        Spaces fill up quickly! Contact us today to reserve your spot or to ask
+        any questions about our classes.
+      </p>
+      <a href="contact.html" class="btn btn-outline">Register Now</a>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>Nami's Cake and Bake</h3>
+          <p>
+            Bringing joy through baking and cooking since 2010. Our classes are
+            designed to inspire creativity and build confidence in the kitchen.
+          </p>
+          <div class="social-links">
+            <a
+              href="https://www.instagram.com/namis_cakenbake_"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://wa.me/918767542742"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cakes.html">Our Cakes</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Class Categories</h3>
+          <ul class="footer-links">
+            <li><a href="classes.html#indian">Indian Cuisine</a></li>
+            <li><a href="classes.html#baking">Baking Classes</a></li>
+            <li><a href="classes.html#snacks">Snacks & Quick Bites</a></li>
+            <li><a href="classes.html#kids">Kids Classes</a></li>
+            <li><a href="#">Private Events</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-map-marker-alt"></i> Vishrambag, Sangli</li>
+            <li><i class="fas fa-phone"></i> +91 87675427442</li>
+            <li><i class="fas fa-envelope"></i> info@namiscakeandbake.com</li>
+            <li><i class="fas fa-clock"></i> Mon-Sat: 9am-7pm</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2023 Nami's Cake and Bake. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Tab functionality
+      const tabBtns = document.querySelectorAll(".tab-btn");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      tabBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // Remove active class from all buttons and contents
+          tabBtns.forEach((btn) => btn.classList.remove("active"));
+          tabContents.forEach((content) => content.classList.remove("active"));
+
+          // Add active class to clicked button
+          btn.classList.add("active");
+
+          // Show corresponding content
+          const tabId = btn.getAttribute("data-tab");
+          document.getElementById(tabId).classList.add("active");
         });
-    });
+      });
 
-    // Initialize Calendly for all book now buttons
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.book-now').forEach(button => {
-        button.addEventListener('click', function(e) {
-          e.preventDefault();
-          const url = this.getAttribute('data-calendly-url');
-          
-          const classCard = this.closest('.class-card');
-          const className = classCard.querySelector('h3').textContent;
-          const classPrice = classCard.querySelector('.price').textContent;
-          
-          Calendly.initPopupWidget({
-            url: url,
-            prefill: {
-              customAnswers: {
-                a1: `Class: ${className}`,
-                a2: `Price: ${classPrice}`
-              }
-            },
-            utm: {
-              utmSource: 'NamiWebsite',
-              utmMedium: 'BookNowButton',
-              utmCampaign: className.replace(/\s+/g, '')
+      // Form submission
+      const form = document.querySelector("form");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        fetch(this.action, {
+          method: "POST",
+          body: new FormData(this),
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              alert(
+                "Thank you! We will contact you shortly to confirm your booking."
+              );
+              form.reset();
+            } else {
+              alert("Oops! Something went wrong. Please try again.");
             }
+          })
+          .catch((error) => {
+            alert("Error: " + error.message);
+          });
+      });
+
+      // Initialize Calendly for all book now buttons
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".book-now").forEach((button) => {
+          button.addEventListener("click", function (e) {
+            e.preventDefault();
+            const url = this.getAttribute("data-calendly-url");
+
+            const classCard = this.closest(".class-card");
+            const className = classCard.querySelector("h3").textContent;
+            const classPrice = classCard.querySelector(".price").textContent;
+
+            Calendly.initPopupWidget({
+              url: url,
+              prefill: {
+                customAnswers: {
+                  a1: `Class: ${className}`,
+                  a2: `Price: ${classPrice}`,
+                },
+              },
+              utm: {
+                utmSource: "NamiWebsite",
+                utmMedium: "BookNowButton",
+                utmCampaign: className.replace(/\s+/g, ""),
+              },
+            });
           });
         });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
