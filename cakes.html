@@ -1,383 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cakes | Nami's Cake and Bake</title>
-  <link rel="shortcut icon" href="assets/favicon_io/favicon-32x32.png" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    :root {
-      --primary: #FF7E7E;
-      --secondary: #F9D5D3;
-      --accent: #5C4033;
-      --light: #FFF4E6;
-      --dark: #3C3C3C;
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      margin: 0;
-      font-family: 'Quicksand', sans-serif;
-      background-color: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
-    }
-    
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      padding: 30px 20px;
-      text-align: center;
-      color: white;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-    
-    header::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.1)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
-      background-size: 100% 100%;
-      opacity: 0.3;
-    }
-    
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      margin: 0;
-      position: relative;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    }
-    
-    .subtitle {
-      font-size: 1.2rem;
-      margin-top: 10px;
-      font-weight: 300;
-      position: relative;
-    }
-    
-    .section {
-      padding: 60px 20px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    
-    .section h2 {
-      text-align: center;
-      color: var(--accent);
-      margin-bottom: 40px;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      position: relative;
-      display: inline-block;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    
-    .section h2::after {
-      content: "";
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      border-radius: 3px;
-    }
-    
-    .carousel-container {
-      overflow: hidden;
-      max-width: 1200px;
-      margin: 40px auto 0;
-      position: relative;
-      border-radius: 15px;
-      box-shadow: var(--shadow);
-      background: white;
-      padding: 20px 0;
-    }
-    
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      padding: 0 10px;
-    }
-    
-    .cake-box {
-      flex: 0 0 calc(33.33% - 20px);
-      margin: 0 10px;
-      box-sizing: border-box;
-      transition: all 0.3s ease;
-      border-radius: 12px;
-      overflow: hidden;
-      background: white;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      position: relative;
-    }
-    
-    .cake-box:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    }
-    
-    .cake-box img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    
-    .cake-box:hover img {
-      transform: scale(1.05);
-    }
-    
-    .cake-info {
-      padding: 20px;
-      text-align: center;
-    }
-    
-    .cake-info h3 {
-      font-family: 'Playfair Display', serif;
-      color: var(--accent);
-      margin-bottom: 10px;
-      font-size: 1.4rem;
-    }
-    
-    .cake-info p {
-      color: var(--dark);
-      font-size: 0.95rem;
-      margin-bottom: 15px;
-    }
-    
-    .price {
-      font-weight: bold;
-      color: var(--primary);
-      font-size: 1.2rem;
-      margin-top: 10px;
-    }
-    
-    .carousel-nav {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 20px;
-      z-index: 10;
-      pointer-events: none;
-    }
-    
-    .carousel-btn {
-      background: rgba(255,255,255,0.8);
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      pointer-events: all;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-    }
-    
-    .carousel-btn:hover {
-      background: var(--primary);
-      color: white;
-      transform: scale(1.1);
-    }
-    
-    footer {
-      background: var(--accent);
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 60px;
-    }
-    
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .social-icons {
-      margin: 20px 0;
-    }
-    
-    .social-icons a {
-      color: white;
-      font-size: 1.5rem;
-      margin: 0 10px;
-      transition: color 0.3s ease;
-    }
-    
-    .social-icons a:hover {
-      color: var(--secondary);
-    }
-    
-    .copyright {
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-    
-    @media (max-width: 992px) {
-      .cake-box {
-        flex: 0 0 calc(50% - 20px);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cakes | Nami's Cake and Bake</title>
+    <link
+      rel="shortcut icon"
+      href="assets/favicon_io/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #ff7e7e;
+        --secondary: #f9d5d3;
+        --accent: #5c4033;
+        --light: #fff4e6;
+        --dark: #3c3c3c;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       }
-      
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Quicksand", sans-serif;
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        padding: 30px 20px;
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.1)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+        background-size: 100% 100%;
+        opacity: 0.3;
+      }
+
       h1 {
-        font-size: 2.5rem;
+        font-family: "Playfair Display", serif;
+        font-size: 3.5rem;
+        margin: 0;
+        position: relative;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
       }
-    }
-    
-    @media (max-width: 768px) {
-      .cake-box {
-        flex: 0 0 calc(100% - 20px);
+
+      .subtitle {
+        font-size: 1.2rem;
+        margin-top: 10px;
+        font-weight: 300;
+        position: relative;
       }
-      
-      .section h2 {
-        font-size: 2rem;
-      }
-      
+
       .section {
-        padding: 40px 20px;
+        padding: 60px 20px;
+        max-width: 1400px;
+        margin: 0 auto;
       }
-    }
-    /* Navigation (consistent with classes.html) */
-nav {
-    background-color: white;
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  
-  .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: var(--accent);
-    font-weight: bold;
-  }
-  
-  .nav-links {
-    display: flex;
-    list-style: none;
-  }
-  
-  .nav-links li {
-    margin-left: 30px;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 600;
-    transition: color 0.3s;
-  }
-  
-  .nav-links a:hover {
-    color: var(--primary);
-  }
-  
-  .nav-links a.active {
-    color: var(--primary);
-    position: relative;
-  }
-  
-  .nav-links a.active::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--primary);
-  }
-  /* Contact Section Styles */
-.contact-subtitle {
-    text-align: center;
-    color: var(--dark);
-    margin-bottom: 40px;
-    font-size: 1.1rem;
-}
 
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+      .section h2 {
+        text-align: center;
+        color: var(--accent);
+        margin-bottom: 40px;
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        position: relative;
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+      }
 
-.contact-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
+      .section h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 3px;
+      }
 
-.info-box {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    text-align: center;
-    transition: all 0.3s ease;
-}
+      .carousel-container {
+        overflow: hidden;
+        max-width: 1200px;
+        margin: 40px auto 0;
+        position: relative;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+        background: white;
+        padding: 20px 0;
+      }
 
-.info-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
+      .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        padding: 0 10px;
+      }
 
-.info-box i {
-    font-size: 2rem;
-    color: var(--primary);
-    margin-bottom: 15px;
-}
+      .cake-box {
+        flex: 0 0 calc(33.33% - 20px);
+        margin: 0 10px;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+        border-radius: 12px;
+        overflow: hidden;
+        background: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
 
-.info-box h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--accent);
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-}
+      .cake-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
 
-.info-box p {
-    color: var(--dark);
-    font-size: 0.95rem;
-}
+      .cake-box img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
 
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-/* 
+      .cake-box:hover img {
+        transform: scale(1.05);
+      }
+
+      .cake-info {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .cake-info h3 {
+        font-family: "Playfair Display", serif;
+        color: var(--accent);
+        margin-bottom: 10px;
+        font-size: 1.4rem;
+      }
+
+      .cake-info p {
+        color: var(--dark);
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+      }
+
+      .price {
+        font-weight: bold;
+        color: var(--primary);
+        font-size: 1.2rem;
+        margin-top: 10px;
+      }
+
+      .carousel-nav {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      .carousel-btn {
+        background: rgba(255, 255, 255, 0.8);
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        pointer-events: all;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .carousel-btn:hover {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+      }
+
+      footer {
+        background: var(--accent);
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 60px;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .social-icons {
+        margin: 20px 0;
+      }
+
+      .social-icons a {
+        color: white;
+        font-size: 1.5rem;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+      }
+
+      .social-icons a:hover {
+        color: var(--secondary);
+      }
+
+      .copyright {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      @media (max-width: 992px) {
+        .cake-box {
+          flex: 0 0 calc(50% - 20px);
+        }
+
+        h1 {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .cake-box {
+          flex: 0 0 calc(100% - 20px);
+        }
+
+        .section h2 {
+          font-size: 2rem;
+        }
+
+        .section {
+          padding: 40px 20px;
+        }
+      }
+      /* Navigation (consistent with classes.html) */
+      nav {
+        background-color: white;
+        box-shadow: var(--shadow);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        color: var(--accent);
+        font-weight: bold;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-icon {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+      }
+      /* Contact Section Styles */
+      .contact-subtitle {
+        text-align: center;
+        color: var(--dark);
+        margin-bottom: 40px;
+        font-size: 1.1rem;
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .contact-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .info-box {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .info-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .info-box i {
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+
+      .info-box h3 {
+        font-family: "Playfair Display", serif;
+        color: var(--accent);
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+      }
+
+      .info-box p {
+        color: var(--dark);
+        font-size: 0.95rem;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      /* 
 #noFocusRing:focus {
     outline: none;
     box-shadow: none; 
@@ -391,844 +395,970 @@ nav {
     
     color: transparent;
   } */
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    max-width: 400px;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    color: rgb(33, 31, 31);
-    padding: 25px;
-    background-color: white;
-    box-shadow: 1px 1px 15px rgb(228, 228, 228);
-    border-radius: 12px;
-    margin: 0 auto;
-  }
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        color: rgb(33, 31, 31);
+        padding: 25px;
+        background-color: white;
+        box-shadow: 1px 1px 15px rgb(228, 228, 228);
+        border-radius: 12px;
+        margin: 0 auto;
+      }
 
-  .form-group {
-    width: 100%;
-    padding-bottom: 10px;
-  }
+      .form-group {
+        width: 100%;
+        padding-bottom: 10px;
+      }
 
-  .form-group label {
-    display: block;
-    padding: 5px;
-    font-weight: 600;
-  }
+      .form-group label {
+        display: block;
+        padding: 5px;
+        font-weight: 600;
+      }
 
-  .input-field {
-    padding: 10px;
-    width: 100%;
-    background-color: rgb(235, 235, 235);
-    color: #353535;
-    border-style: none;
-    border-radius: 5px;
-    font-size: 16px;
-    resize: none;
-  }
+      .input-field {
+        padding: 10px;
+        width: 100%;
+        background-color: rgb(235, 235, 235);
+        color: #353535;
+        border-style: none;
+        border-radius: 5px;
+        font-size: 16px;
+        resize: none;
+      }
 
-  .input-field:focus {
-    outline: none;
-    box-shadow: none;
-  }
+      .input-field:focus {
+        outline: none;
+        box-shadow: none;
+      }
 
-  .input-field::placeholder {
-    color: #aaa;
-  }
+      .input-field::placeholder {
+        color: #aaa;
+      }
 
-  .input-field:focus::placeholder {
-    color: transparent;
-  }
+      .input-field:focus::placeholder {
+        color: transparent;
+      }
 
-  .btn {
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
-    border-style: none;
-    background-color: #6b4e41;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
+      .btn {
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        border-style: none;
+        background-color: #6b4e41;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
 
-  .btn:hover {
-    background-color: #553c31;
-  }
+      .btn:hover {
+        background-color: #553c31;
+      }
 
-  @media (max-width: 480px) {
-    .contact-form {
-      padding: 20px;
-    }
+      @media (max-width: 480px) {
+        .contact-form {
+          padding: 20px;
+        }
 
-    .btn {
-      width: 100%;
-    }
-  }
-  
+        .btn {
+          width: 100%;
+        }
+      }
 
-@media (max-width: 992px) {
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-info {
-        grid-template-columns: 1fr;
-    }
-}
+      @media (max-width: 992px) {
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
 
-@media (max-width: 768px) {
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-}
+        .contact-info {
+          grid-template-columns: 1fr;
+        }
+      }
 
-/* Footer Styles */
-footer {
-    background: var(--accent);
-    color: white;
-    padding: 60px 20px 30px;
-  }
-  
-  .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-  }
-  
-  .footer-col h3 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 20px;
-    font-size: 1.3rem;
-    position: relative;
-    padding-bottom: 10px;
-  }
-  
-  .footer-col h3::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background: var(--primary);
-  }
-  
-  .footer-col p {
-    margin-bottom: 20px;
-    font-size: 0.95rem;
-    opacity: 0.9;
-  }
-  
-  .footer-links {
-    list-style: none;
-  }
-  
-  .footer-links li {
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .footer-links i {
-    margin-right: 10px;
-    width: 20px;
-    color: var(--primary);
-  }
-  
-  .footer-links a {
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s;
-    font-size: 0.95rem;
-  }
-  
-  .footer-links a:hover {
-    color: var(--secondary);
-    padding-left: 5px;
-  }
-  
-  .social-links {
-    display: flex;
-    margin-top: 20px;
-  }
-  
-  .social-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
-    margin-right: 10px;
-    color: white;
-    transition: all 0.3s;
-  }
-  
-  .social-links a:hover {
-    background: var(--primary);
-    transform: translateY(-3px);
-  }
-  
-  .copyright {
-    text-align: center;
-    margin-top: 60px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    font-size: 0.9rem;
-    opacity: 0.8;
-  }
-  @media (max-width: 768px) {
-    .cake-box {
-        flex: 0 0 calc(100% - 20px);
-    }
-    
-    .section h2 {
-        font-size: 2rem;
-    }
-    
-    .section {
-        padding: 40px 20px;
-    }
-}
-@media (max-width: 480px) {
-  /* ... your existing 480px styles ... */
-  
-  /* Additional recommended mobile styles */
-  header {
-      padding: 20px 15px;
-  }
-  
-  .carousel-container {
-      margin: 20px auto 0;
-  }
-  
-  .cake-box img {
-      height: 200px; /* Slightly smaller images on mobile */
-  }
-  
-  .nav-container {
-      padding: 10px 15px;
-  }
-}
-  @media (max-width: 768px) {
-    .footer-container {
-      grid-template-columns: 1fr;
-      gap: 30px;
-    }
-    
-    .footer-col {
-      text-align: center;
-    }
-    
-    .footer-col h3::after {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    
-    .footer-links {
-      justify-content: center;
-    }
-    
-    .social-links {
-      justify-content: center;
-    }
-  }
+      @media (max-width: 768px) {
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+      }
 
+      /* Footer Styles */
+      footer {
+        background: var(--accent);
+        color: white;
+        padding: 60px 20px 30px;
+      }
 
-</style>
-</head>
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+      }
 
-<body>
-   
-        <!-- Navigation -->
-        <nav>
-          <div class="nav-container">
-            <div class="logo">Nami's Cake and Bake</div>
-            <ul class="nav-links">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="cakes.html" class="active">Cakes</a></li>
-              <li><a href="classes.html">Classes</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </div>
-        </nav>
-    
-  <header>
-    <h1>Nami's Cakes</h1>
-    <div class="subtitle">Handcrafted with love since 2015</div>
-  </header>
+      .footer-col h3 {
+        font-family: "Playfair Display", serif;
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+        position: relative;
+        padding-bottom: 10px;
+      }
 
-  <div class="section">
-    <h2>Chocolate Cakes</h2>
-    <div class="carousel-container" id="chocolateCarousel">
-      <div class="carousel-track" id="chocolateTrack">
-        <div class="cake-box">
-          <img src="assets/ChocolateCake6.webp" alt="Chocolate Orange" />
-          <div class="cake-info">
-            <h3>Midnight Truffle Magic Chocolate</h3>
-            <p>Rich dark chocolate cake with silky truffle ganache.</p>
-            <div class="price">₹ 725</div>
-          </div>
+      .footer-col h3::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background: var(--primary);
+      }
+
+      .footer-col p {
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+        opacity: 0.9;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-links i {
+        margin-right: 10px;
+        width: 20px;
+        color: var(--primary);
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s;
+        font-size: 0.95rem;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary);
+        padding-left: 5px;
+      }
+
+      .social-links {
+        display: flex;
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        margin-right: 10px;
+        color: white;
+        transition: all 0.3s;
+      }
+
+      .social-links a:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        text-align: center;
+        margin-top: 60px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+      @media (max-width: 768px) {
+        .cake-box {
+          flex: 0 0 calc(100% - 20px);
+        }
+
+        .section h2 {
+          font-size: 2rem;
+        }
+
+        .section {
+          padding: 40px 20px;
+        }
+      }
+      @media (max-width: 480px) {
+        /* ... your existing 480px styles ... */
+
+        /* Additional recommended mobile styles */
+        header {
+          padding: 20px 15px;
+        }
+
+        .carousel-container {
+          margin: 20px auto 0;
+        }
+
+        .cake-box img {
+          height: 200px; /* Slightly smaller images on mobile */
+        }
+
+        .nav-container {
+          padding: 10px 15px;
+        }
+      }
+      @media (max-width: 768px) {
+        .footer-container {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .footer-col {
+          text-align: center;
+        }
+
+        .footer-col h3::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        .footer-links {
+          justify-content: center;
+        }
+
+        .social-links {
+          justify-content: center;
+        }
+      }
+      @media (max-width: 768px) {
+        body {
+          padding: 20px;
+          height: auto;
+          align-items: flex-start;
+        }
+
+        .nav-container {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+
+        .brand {
+          flex-direction: row;
+          align-items: center;
+        }
+
+        .logo {
+          font-size: 1.5rem;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+          margin-top: 10px;
+          padding-left: 0;
+        }
+
+        .nav-links li {
+          margin: 10px 10px 0 0;
+        }
+
+        .nav-links a {
+          font-size: 14px;
+        }
+
+        .nav-icon {
+          width: 28px;
+          height: 28px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        html {
+          font-size: 14px;
+        }
+
+        .nav-container {
+          padding: 10px 15px;
+        }
+
+        .logo {
+          font-size: 1.3rem;
+        }
+
+        .nav-icon {
+          width: 24px;
+          height: 24px;
+          margin-right: 8px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="brand">
+          <img
+            src="assets/favicon_io/favicon-32x32.png"
+            alt="Logo Icon"
+            class="nav-icon"
+          />
+          <div class="logo">Nami's Cake and Bake</div>
         </div>
-
-        <div class="cake-box">
-          <img src="assets/ChocolateCake5.webp" alt="Chocolate Orange" />
-          <div class="cake-info">
-            <h3>Choco Craze Fudge Cake</h3>
-            <p>Ultra-moist chocolate cake loaded with gooey fudge.</p>
-            <div class="price">₹ 800</div>
-          </div>
-        </div>
-
-        <div class="cake-box">
-          <img src="assets/ChocolateCake4.webp" alt="Chocolate Mint" />
-          <div class="cake-info">
-            <h3>Eggless Dutch Chocolate Cake</h3>
-            <p>Smooth, rich cocoa delight with zero eggs, all indulgence.</p>
-            <div class="price">₹ 625</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/ChocolateCake1.webp" alt="Chocolate Fudge Cake" />
-          <div class="cake-info">
-            <h3>Chocoholic Cake</h3>
-            <p>Loaded layers of pure chocolate indulgence.</p>
-            <div class="price">₹ 725</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/ChocolateCake2.webp" alt="Chocolate Raspberry" />
-          <div class="cake-info">
-            <h3>Dark Chocolate Mousse Cake</h3>
-            <p> Light, airy mousse over rich dark chocolate layers.</p>
-            <div class="price">₹ 895</div>
-          </div>
-        </div>
-        
-        <div class="cake-box">
-          <img src="assets/ChocolateCake10.webp" alt="Chocolate Orange" />
-          <div class="cake-info">
-            <h3>Indulgent Choco Dream Cake</h3>
-            <p> creamy, rich chocolate layers for a dreamy bite every time.</p>
-            <div class="price">₹ 900</div>
-          </div>
-        </div>
-        
-        <div class="cake-box">
-          <img src="assets/ChocolateCake7.webp" alt="Chocolate Orange" />
-          <div class="cake-info">
-            <h3>Chocolate Pinata Ball Cake</h3>
-            <p>Smashable chocolate shell filled with cake and sweet surprises.</p>
-            <div class="price">₹ 950</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/ChocolateCake8.webp" alt="Chocolate Orange" />
-          <div class="cake-info">
-            <h3>Choco Chip Cake</h3>
-            <p>Soft, fluffy cake loaded with melty chocolate chips.</p>
-            <div class="price">$31.99</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/ChocolateCake9.webp" alt="Chocolate Orange" />
-          <div class="cake-info">
-            <h3>Fruitful Fantasy Chocolate Cake</h3>
-            <p>Rich chocolate cake topped with a burst of fresh, juicy fruits.</p>
-            <div class="price">₹ 700</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/ChocolateCake3.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Eggless Dense Loaf</h3>
-            <p>Rich, moist, and egg-free loaf cake.</p>
-            <div class="price">₹ 300</div>
-          </div>
-        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cakes.html">Cakes</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
-      <div class="carousel-nav">
-        <button class="carousel-btn" id="chocolatePrev"><i class="fas fa-chevron-left"></i></button>
-        <button class="carousel-btn" id="chocolateNext"><i class="fas fa-chevron-right"></i></button>
-      </div>
-    </div>
-  </div>
+    </nav>
 
-  <div class="section">
-    <h2>Truffle Cakes</h2>
-    <div class="carousel-container" id="truffleCarousel">
-      <div class="carousel-track" id="truffleTrack">
-        <div class="cake-box">
-          <img src="assets/Truffle1.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Choco-licious Truffle Extravaganza Cake</h3>
-            <p>A lavish treat of rich cake and decadent truffle layers.</p>
-            <div class="price">₹ 700</div>
+    <header>
+      <h1>Nami's Cakes</h1>
+      <div class="subtitle">Handcrafted with love since 2015</div>
+    </header>
+
+    <div class="section">
+      <h2>Chocolate Cakes</h2>
+      <div class="carousel-container" id="chocolateCarousel">
+        <div class="carousel-track" id="chocolateTrack">
+          <div class="cake-box">
+            <img src="assets/ChocolateCake6.webp" alt="Chocolate Orange" />
+            <div class="cake-info">
+              <h3>Midnight Truffle Magic Chocolate</h3>
+              <p>Rich dark chocolate cake with silky truffle ganache.</p>
+              <div class="price">₹ 725</div>
+            </div>
+          </div>
+
+          <div class="cake-box">
+            <img src="assets/ChocolateCake5.webp" alt="Chocolate Orange" />
+            <div class="cake-info">
+              <h3>Choco Craze Fudge Cake</h3>
+              <p>Ultra-moist chocolate cake loaded with gooey fudge.</p>
+              <div class="price">₹ 800</div>
+            </div>
+          </div>
+
+          <div class="cake-box">
+            <img src="assets/ChocolateCake4.webp" alt="Chocolate Mint" />
+            <div class="cake-info">
+              <h3>Eggless Dutch Chocolate Cake</h3>
+              <p>Smooth, rich cocoa delight with zero eggs, all indulgence.</p>
+              <div class="price">₹ 625</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/ChocolateCake1.webp" alt="Chocolate Fudge Cake" />
+            <div class="cake-info">
+              <h3>Chocoholic Cake</h3>
+              <p>Loaded layers of pure chocolate indulgence.</p>
+              <div class="price">₹ 725</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/ChocolateCake2.webp" alt="Chocolate Raspberry" />
+            <div class="cake-info">
+              <h3>Dark Chocolate Mousse Cake</h3>
+              <p>Light, airy mousse over rich dark chocolate layers.</p>
+              <div class="price">₹ 895</div>
+            </div>
+          </div>
+
+          <div class="cake-box">
+            <img src="assets/ChocolateCake10.webp" alt="Chocolate Orange" />
+            <div class="cake-info">
+              <h3>Indulgent Choco Dream Cake</h3>
+              <p>creamy, rich chocolate layers for a dreamy bite every time.</p>
+              <div class="price">₹ 900</div>
+            </div>
+          </div>
+
+          <div class="cake-box">
+            <img src="assets/ChocolateCake7.webp" alt="Chocolate Orange" />
+            <div class="cake-info">
+              <h3>Chocolate Pinata Ball Cake</h3>
+              <p>
+                Smashable chocolate shell filled with cake and sweet surprises.
+              </p>
+              <div class="price">₹ 950</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/ChocolateCake8.webp" alt="Chocolate Orange" />
+            <div class="cake-info">
+              <h3>Choco Chip Cake</h3>
+              <p>Soft, fluffy cake loaded with melty chocolate chips.</p>
+              <div class="price">$31.99</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/ChocolateCake9.webp" alt="Chocolate Orange" />
+            <div class="cake-info">
+              <h3>Fruitful Fantasy Chocolate Cake</h3>
+              <p>
+                Rich chocolate cake topped with a burst of fresh, juicy fruits.
+              </p>
+              <div class="price">₹ 700</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/ChocolateCake3.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Eggless Dense Loaf</h3>
+              <p>Rich, moist, and egg-free loaf cake.</p>
+              <div class="price">₹ 300</div>
+            </div>
           </div>
         </div>
-        <div class="cake-box">
-          <img src="assets/Truffle2.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Lustrous Chocolate Cake</h3>
-            <p>Glossy, smooth finish over rich chocolatey layers.</p>
-            <div class="price">₹ 600</div>
-          </div>
+        <div class="carousel-nav">
+          <button class="carousel-btn" id="chocolatePrev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-btn" id="chocolateNext">
+            <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
-        <div class="cake-box">
-          <img src="assets/Truffle3.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Choco Dream Truffle Cake</h3>
-            <p>Soft chocolate cake layered with creamy truffle delight.</p>
-            <div class="price">₹ 800</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/Truffle4.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Chocolate Heart Truffle Cake</h3>
-            <p>Heart-shaped cake filled with rich chocolate truffle love.</p>
-            <div class="price">₹ 950</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/Truffle5.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Almond Drizzle Truffle Cake </h3>
-            <p>Rich truffle cake topped with a crunchy almond drizzle</p>
-            <div class="price">₹ 750</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/Truffle6.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Decadent Chocolate Truffle Cake</h3>
-            <p>Ultra-rich cake with layers of smooth chocolate truffle.</p>
-            <div class="price">₹ 500</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/Truffle7.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Midnight Truffle Cake</h3>
-            <p>Deep, dark chocolate cake with luscious truffle layers.</p>
-            <div class="price">₹ 600</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/Truffle8.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Chocolate Truffle Cake</h3>
-            <p>Classic rich chocolate cake with creamy truffle frosting.</p>
-            <div class="price">₹ 750</div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-nav">
-        <button class="carousel-btn" id="trufflePrev"><i class="fas fa-chevron-left"></i></button>
-        <button class="carousel-btn" id="truffleNext"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
-  </div>
 
-  <div class="section">
-    <h2>Fondant/Semi-Fondant Cakes</h2>
-    <div class="carousel-container" id="semiFondantCarousel">
-      <div class="carousel-track" id="semiFondantTrack">
-        <div class="cake-box">
-          <img src="assets/Fondant1.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Snowman Semi Fondant Cake</h3>
-            <p>Cute snowman cake with a smooth semi-fondant finish.</p>
-            <div class="price">₹ 800</div>
+    <div class="section">
+      <h2>Truffle Cakes</h2>
+      <div class="carousel-container" id="truffleCarousel">
+        <div class="carousel-track" id="truffleTrack">
+          <div class="cake-box">
+            <img src="assets/Truffle1.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Choco-licious Truffle Extravaganza Cake</h3>
+              <p>A lavish treat of rich cake and decadent truffle layers.</p>
+              <div class="price">₹ 700</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/Truffle2.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Lustrous Chocolate Cake</h3>
+              <p>Glossy, smooth finish over rich chocolatey layers.</p>
+              <div class="price">₹ 600</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/Truffle3.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Choco Dream Truffle Cake</h3>
+              <p>Soft chocolate cake layered with creamy truffle delight.</p>
+              <div class="price">₹ 800</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/Truffle4.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Chocolate Heart Truffle Cake</h3>
+              <p>Heart-shaped cake filled with rich chocolate truffle love.</p>
+              <div class="price">₹ 950</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/Truffle5.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Almond Drizzle Truffle Cake</h3>
+              <p>Rich truffle cake topped with a crunchy almond drizzle</p>
+              <div class="price">₹ 750</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/Truffle6.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Decadent Chocolate Truffle Cake</h3>
+              <p>Ultra-rich cake with layers of smooth chocolate truffle.</p>
+              <div class="price">₹ 500</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/Truffle7.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Midnight Truffle Cake</h3>
+              <p>Deep, dark chocolate cake with luscious truffle layers.</p>
+              <div class="price">₹ 600</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/Truffle8.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Chocolate Truffle Cake</h3>
+              <p>Classic rich chocolate cake with creamy truffle frosting.</p>
+              <div class="price">₹ 750</div>
+            </div>
           </div>
         </div>
-        <div class="cake-box">
-          <img src="assets/Fondant2.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Superhero Themed Fondant Cake</h3>
-            <p>Vibrant cake with fondant superhero accents.</p>
-            <div class="price">₹ 1000</div>
-          </div>
+        <div class="carousel-nav">
+          <button class="carousel-btn" id="trufflePrev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-btn" id="truffleNext">
+            <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
-        <div class="cake-box">
-          <img src="assets/Fondant3.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Minion Madness Fondant Cake</h3>
-            <p>Fun-filled cake with playful minion fondant toppers.</p>
-            <div class="price">₹ 950</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/Fondant4.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Batman Bonanza Fondant Cake</h3>
-            <p>Striking cake with bold Batman-themed fondant decor.</p>
-            <div class="price">₹ 850</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/Fondant5.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Graduation Hat Fondant Cake</h3>
-            <p>Celebratory cake topped with a fondant graduation cap.</p>
-            <div class="price">₹ 950</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/Fondant6.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Beary Delight Semi-Fondant Cake</h3>
-            <p>Adorable bear-themed cake with a smooth semi-fondant finish.</p>
-            <div class="price">₹ 900</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/Fondant7.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>XOXO Sweetheart Semi-fondant Cake</h3>
-            <p>Romantic cake with sweetheart vibes and semi-fondant charm.</p>
-            <div class="price">₹ 800</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/Fondant8.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Luscious Love Semi-Fondant Cake</h3>
-            <p>Dreamy cake with romantic flair and a semi-fondant touch.</p>
-            <div class="price">₹ 600</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/Fondant9.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Fruits Fondant Cake</h3>
-            <p>Vibrant fondant cake topped with colorful, fruity decorations.</p>
-            <div class="price">₹ 1000</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/Fondant10.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Little Mermaid Fondant Cake</h3>
-            <p>Ocean-themed cake with mermaid fondant decor.</p>
-            <div class="price">₹ 750</div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-nav">
-        <button class="carousel-btn" id="semiFondantPrev"><i class="fas fa-chevron-left"></i></button>
-        <button class="carousel-btn" id="semiFondantNext"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
-  </div>
 
-  <div class="section">
-    <h2>Fresh Cream Cakes</h2>
-    <div class="carousel-container" id="freshCreamCarousel">
-      <div class="carousel-track" id="freshCreamTrack">
-        <div class="cake-box">
-          <img src="assets/CreamCake1.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Fresh Fruit Cream Cake</h3>
-            <p>Light, fluffy cake topped with fresh fruits and whipped cream.</p>
-            <div class="price">₹ 545</div>
+    <div class="section">
+      <h2>Fondant/Semi-Fondant Cakes</h2>
+      <div class="carousel-container" id="semiFondantCarousel">
+        <div class="carousel-track" id="semiFondantTrack">
+          <div class="cake-box">
+            <img src="assets/Fondant1.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Snowman Semi Fondant Cake</h3>
+              <p>Cute snowman cake with a smooth semi-fondant finish.</p>
+              <div class="price">₹ 800</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/Fondant2.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Superhero Themed Fondant Cake</h3>
+              <p>Vibrant cake with fondant superhero accents.</p>
+              <div class="price">₹ 1000</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/Fondant3.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Minion Madness Fondant Cake</h3>
+              <p>Fun-filled cake with playful minion fondant toppers.</p>
+              <div class="price">₹ 950</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/Fondant4.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Batman Bonanza Fondant Cake</h3>
+              <p>Striking cake with bold Batman-themed fondant decor.</p>
+              <div class="price">₹ 850</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/Fondant5.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Graduation Hat Fondant Cake</h3>
+              <p>Celebratory cake topped with a fondant graduation cap.</p>
+              <div class="price">₹ 950</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/Fondant6.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Beary Delight Semi-Fondant Cake</h3>
+              <p>
+                Adorable bear-themed cake with a smooth semi-fondant finish.
+              </p>
+              <div class="price">₹ 900</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/Fondant7.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>XOXO Sweetheart Semi-fondant Cake</h3>
+              <p>Romantic cake with sweetheart vibes and semi-fondant charm.</p>
+              <div class="price">₹ 800</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/Fondant8.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Luscious Love Semi-Fondant Cake</h3>
+              <p>Dreamy cake with romantic flair and a semi-fondant touch.</p>
+              <div class="price">₹ 600</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/Fondant9.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Fruits Fondant Cake</h3>
+              <p>
+                Vibrant fondant cake topped with colorful, fruity decorations.
+              </p>
+              <div class="price">₹ 1000</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/Fondant10.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Little Mermaid Fondant Cake</h3>
+              <p>Ocean-themed cake with mermaid fondant decor.</p>
+              <div class="price">₹ 750</div>
+            </div>
           </div>
         </div>
-        <div class="cake-box">
-          <img src="assets/CreamCake2.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Fresh Cream Pineapple Cake</h3>
-            <p>Soft sponge layered with juicy pineapple and fresh cream.</p>
-            <div class="price">₹ 595</div>
-          </div>
+        <div class="carousel-nav">
+          <button class="carousel-btn" id="semiFondantPrev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-btn" id="semiFondantNext">
+            <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
-        <div class="cake-box">
-          <img src="assets/CreamCake3.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Fresh Fruit Almond Cake</h3>
-            <p>Moist almond cake topped with a medley of fresh fruits.</p>
-            <div class="price">₹ 745</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/CreamCake4.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Friendship Day Fresh Cream Cake</h3>
-            <p>Sweet, creamy cake made to celebrate special bonds.</p>
-            <div class="price">₹ 645</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/CreamCake5.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Classy Pearl & Ribbon Cake</h3>
-            <p>Elegant cake adorned with fondant pearls and delicate ribbons.</p>
-            <div class="price">₹ 575</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/CreamCake6.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Biscoff Ice Cream Cake</h3>
-            <p>Creamy ice cream cake infused with crunchy Biscoff layers.</p>
-            <div class="price">₹ 695</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/CreamCake7.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Delectable and Creamy Cake</h3>
-            <p>Rich, smooth cake bursting with creamy goodness.</p>
-            <div class="price">₹ 695</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/CreamCake8.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Pearly Blue Cream Cake</h3>
-            <p>Elegant cake with soft blue cream and pearly touches.</p>
-            <div class="price">₹ 545</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/CreamCake9.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Chocolate Roses Cream Cake</h3>
-            <p>Creamy delight topped with beautiful chocolate rose swirls.</p>
-            <div class="price">₹ 525</div>
-          </div>
-        </div>
-        <div class="cake-box">
-          <img src="assets/CreamCake10.webp" alt="Triple Chocolate" />
-          <div class="cake-info">
-            <h3>Sunset Heart Cream Cake</h3>
-            <p>Heart-shaped cake with dreamy sunset-inspired cream swirls.</p>
-            <div class="price">₹ 499</div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-nav">
-        <button class="carousel-btn" id="freshCreamPrev"><i class="fas fa-chevron-left"></i></button>
-        <button class="carousel-btn" id="freshCreamNext"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
-  </div>
 
+    <div class="section">
+      <h2>Fresh Cream Cakes</h2>
+      <div class="carousel-container" id="freshCreamCarousel">
+        <div class="carousel-track" id="freshCreamTrack">
+          <div class="cake-box">
+            <img src="assets/CreamCake1.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Fresh Fruit Cream Cake</h3>
+              <p>
+                Light, fluffy cake topped with fresh fruits and whipped cream.
+              </p>
+              <div class="price">₹ 545</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/CreamCake2.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Fresh Cream Pineapple Cake</h3>
+              <p>Soft sponge layered with juicy pineapple and fresh cream.</p>
+              <div class="price">₹ 595</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/CreamCake3.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Fresh Fruit Almond Cake</h3>
+              <p>Moist almond cake topped with a medley of fresh fruits.</p>
+              <div class="price">₹ 745</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/CreamCake4.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Friendship Day Fresh Cream Cake</h3>
+              <p>Sweet, creamy cake made to celebrate special bonds.</p>
+              <div class="price">₹ 645</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/CreamCake5.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Classy Pearl & Ribbon Cake</h3>
+              <p>
+                Elegant cake adorned with fondant pearls and delicate ribbons.
+              </p>
+              <div class="price">₹ 575</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/CreamCake6.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Biscoff Ice Cream Cake</h3>
+              <p>Creamy ice cream cake infused with crunchy Biscoff layers.</p>
+              <div class="price">₹ 695</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/CreamCake7.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Delectable and Creamy Cake</h3>
+              <p>Rich, smooth cake bursting with creamy goodness.</p>
+              <div class="price">₹ 695</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/CreamCake8.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Pearly Blue Cream Cake</h3>
+              <p>Elegant cake with soft blue cream and pearly touches.</p>
+              <div class="price">₹ 545</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/CreamCake9.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Chocolate Roses Cream Cake</h3>
+              <p>Creamy delight topped with beautiful chocolate rose swirls.</p>
+              <div class="price">₹ 525</div>
+            </div>
+          </div>
+          <div class="cake-box">
+            <img src="assets/CreamCake10.webp" alt="Triple Chocolate" />
+            <div class="cake-info">
+              <h3>Sunset Heart Cream Cake</h3>
+              <p>Heart-shaped cake with dreamy sunset-inspired cream swirls.</p>
+              <div class="price">₹ 499</div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-btn" id="freshCreamPrev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-btn" id="freshCreamNext">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
         // Initialize all carousels
-        initCarousel('chocolate');
-        initCarousel('truffle');
-        initCarousel('semiFondant');
-        initCarousel('freshCream');
-        
+        initCarousel("chocolate");
+        initCarousel("truffle");
+        initCarousel("semiFondant");
+        initCarousel("freshCream");
+
         // Add hover effect to cake boxes
-        const cakeBoxes = document.querySelectorAll('.cake-box');
-        cakeBoxes.forEach(box => {
-          box.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px)';
-            this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.15)';
+        const cakeBoxes = document.querySelectorAll(".cake-box");
+        cakeBoxes.forEach((box) => {
+          box.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-10px)";
+            this.style.boxShadow = "0 15px 30px rgba(0,0,0,0.15)";
           });
-          
-          box.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+
+          box.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0)";
+            this.style.boxShadow = "0 5px 15px rgba(0,0,0,0.1)";
           });
         });
-        
+
         // Form submission handling
-        const contactForm = document.querySelector('.contact-form');
+        const contactForm = document.querySelector(".contact-form");
         if (contactForm) {
-          contactForm.addEventListener('submit', function(e) {
+          contactForm.addEventListener("submit", function (e) {
             e.preventDefault();
-            alert('Thank you for your message! We will contact you soon.');
+            alert("Thank you for your message! We will contact you soon.");
             this.reset();
           });
         }
-    });
-    
-    function initCarousel(type) {
-      const container = document.getElementById(`${type}Carousel`);
-      const track = document.getElementById(`${type}Track`);
-      const prevBtn = document.getElementById(`${type}Prev`);
-      const nextBtn = document.getElementById(`${type}Next`);
-      const items = track.querySelectorAll('.cake-box');
-      
-      if (items.length === 0) return;
-    
-      const itemWidth = items[0].offsetWidth + 20; // width + margin
-      let position = 0;
-      const visibleItems = window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
-      const maxPosition = (items.length - visibleItems) * itemWidth;
-    
-      // Next button click
-      nextBtn.addEventListener('click', () => {
-        position = Math.min(position + itemWidth, maxPosition);
-        track.style.transform = `translateX(-${position}px)`;
       });
-    
-      // Previous button click
-      prevBtn.addEventListener('click', () => {
-        position = Math.max(position - itemWidth, 0);
-        track.style.transform = `translateX(-${position}px)`;
-      });
-    
-      // Handle window resize
-      window.addEventListener('resize', () => {
-        const newVisibleItems = window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
-        const newMaxPosition = (items.length - newVisibleItems) * itemWidth;
-        position = Math.min(position, newMaxPosition);
-        track.style.transform = `translateX(-${position}px)`;
-      });
-  }
+
+      function initCarousel(type) {
+        const container = document.getElementById(`${type}Carousel`);
+        const track = document.getElementById(`${type}Track`);
+        const prevBtn = document.getElementById(`${type}Prev`);
+        const nextBtn = document.getElementById(`${type}Next`);
+        const items = track.querySelectorAll(".cake-box");
+
+        if (items.length === 0) return;
+
+        const itemWidth = items[0].offsetWidth + 20; // width + margin
+        let position = 0;
+        const visibleItems =
+          window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
+        const maxPosition = (items.length - visibleItems) * itemWidth;
+
+        // Next button click
+        nextBtn.addEventListener("click", () => {
+          position = Math.min(position + itemWidth, maxPosition);
+          track.style.transform = `translateX(-${position}px)`;
+        });
+
+        // Previous button click
+        prevBtn.addEventListener("click", () => {
+          position = Math.max(position - itemWidth, 0);
+          track.style.transform = `translateX(-${position}px)`;
+        });
+
+        // Handle window resize
+        window.addEventListener("resize", () => {
+          const newVisibleItems =
+            window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
+          const newMaxPosition = (items.length - newVisibleItems) * itemWidth;
+          position = Math.min(position, newMaxPosition);
+          track.style.transform = `translateX(-${position}px)`;
+        });
+      }
     </script>
-<!-- Replace your current contact section with this -->
-<section class="section" id="contact">
-    <h2>Get in Touch</h2>
-    <p class="contact-subtitle">Have questions or special requests? Send us a message!</p>
-    
-    <div class="contact-container">
+    <!-- Replace your current contact section with this -->
+    <section class="section" id="contact">
+      <h2>Get in Touch</h2>
+      <p class="contact-subtitle">
+        Have questions or special requests? Send us a message!
+      </p>
+
+      <div class="contact-container">
         <div class="contact-info">
-            <div class="info-box">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Our Location</h3>
-                <p>123 Bakery Street, Mumbai</p>
-            </div>
-            <div class="info-box">
-                <i class="fas fa-phone"></i>
-                <h3>Call Us</h3>
-                <p>+91 98765 43210</p>
-            </div>
-            <div class="info-box">
-                <i class="fas fa-envelope"></i>
-                <h3>Email Us</h3>
-                <p>info@namiscakeandbake.com</p>
-            </div>
-            <div class="info-box">
-                <i class="fas fa-clock"></i>
-                <h3>Opening Hours</h3>
-                <p>Mon-Sat: 9am-7pm</p>
-            </div>
+          <div class="info-box">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Our Location</h3>
+            <p>Vishrambag, Sangli</p>
+          </div>
+          <div class="info-box">
+            <i class="fas fa-phone"></i>
+            <h3>Call Us</h3>
+            <p>+91 98765 43210</p>
+          </div>
+          <div class="info-box">
+            <i class="fas fa-envelope"></i>
+            <h3>Email Us</h3>
+            <p>info@namiscakeandbake.com</p>
+          </div>
+          <div class="info-box">
+            <i class="fas fa-clock"></i>
+            <h3>Opening Hours</h3>
+            <p>Mon-Sat: 9am-7pm</p>
+          </div>
         </div>
-        
-        <form class="contact-form" action="https://getform.io/f/bllyvdqb" method="POST">
+
+        <form
+          class="contact-form"
+          action="https://getform.io/f/bllyvdqb"
+          method="POST"
+        >
           <div class="form-group">
             <label for="name">Your Name</label>
-            <input type="text" class="input-field" placeholder="Enter your name" name="name" required>
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Enter your name"
+              name="name"
+              required
+            />
           </div>
-        
+
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" class="input-field" placeholder="Enter your email" name="email" required>
+            <input
+              type="email"
+              class="input-field"
+              placeholder="Enter your email"
+              name="email"
+              required
+            />
           </div>
-        
+
           <div class="form-group">
             <label for="phone">Contact Number</label>
-            <input type="tel" class="input-field" placeholder="xxxxx xxxxx" name="phone">
+            <input
+              type="tel"
+              class="input-field"
+              placeholder="xxxxx xxxxx"
+              name="phone"
+            />
           </div>
-        
+
           <div class="form-group">
             <label for="message">Your Message</label>
-            <textarea class="input-field" name="message" placeholder="Type here..." rows="5" required></textarea>
+            <textarea
+              class="input-field"
+              name="message"
+              placeholder="Type here..."
+              rows="5"
+              required
+            ></textarea>
           </div>
-        
-          <input type="hidden" name="_form_name" value="Nami's Cake Contact Form">
-        
+
+          <input
+            type="hidden"
+            name="_form_name"
+            value="Nami's Cake Contact Form"
+          />
+
           <button type="submit" class="btn">Send Message</button>
         </form>
-    </div>
-</section>
-
-    
- <!-- Footer -->
-<footer>
-  <div class="footer-container">
-    <div class="footer-col">
-      <h3>Nami's Cake and Bake</h3>
-      <p>Bringing joy through baking and cooking since 2010. Our cakes are made with love and the finest ingredients.</p>
-      <div class="social-links">
-        <!-- WhatsApp -->
-        <a href="https://wa.me/918767542742" target="_blank">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-        <!-- Instagram -->
-        <a href="https://instagram.com/_yash1405" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
       </div>
-    </div>
+    </section>
 
-    <div class="footer-col">
-      <h3>Quick Links</h3>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="cakes.html">Our Cakes</a></li>
-        <li><a href="classes.html">Classes</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="#">FAQ</a></li>
-      </ul>
-    </div>
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>Nami's Cake and Bake</h3>
+          <p>
+            Bringing joy through baking and cooking since 2010. Our cakes are
+            made with love and the finest ingredients.
+          </p>
+          <div class="social-links">
+            <!-- WhatsApp -->
+            <a href="https://wa.me/918767542742" target="_blank">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com/namis_cakenbake_" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
 
-    <div class="footer-col">
-      <h3>Cake Categories</h3>
-      <ul class="footer-links">
-        <li><a href="#chocolateCarousel">Chocolate Cakes</a></li>
-        <li><a href="#truffleCarousel">Truffle Cakes</a></li>
-        <li><a href="#semiFondantCarousel">Semi Fondant</a></li>
-        <li><a href="#freshCreamCarousel">Fresh Cream</a></li>
-        <li><a href="#">Seasonal Specials</a></li>
-      </ul>
-    </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cakes.html">Our Cakes</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
 
-    <div class="footer-col">
-      <h3>Contact Us</h3>
-      <ul class="footer-links">
-        <li><i class="fas fa-map-marker-alt"></i> 123 Bakery Street, Mumbai</li>
-        <li><i class="fas fa-phone"></i> +91 8767542742</li>
-        <li><i class="fas fa-envelope"></i> info@namiscakeandbake.com</li>
-        <li><i class="fas fa-clock"></i> Mon-Sat: 9am-7pm</li>
-      </ul>
-    </div>
-  </div>
+        <div class="footer-col">
+          <h3>Cake Categories</h3>
+          <ul class="footer-links">
+            <li><a href="#chocolateCarousel">Chocolate Cakes</a></li>
+            <li><a href="#truffleCarousel">Truffle Cakes</a></li>
+            <li><a href="#semiFondantCarousel">Semi Fondant</a></li>
+            <li><a href="#freshCreamCarousel">Fresh Cream</a></li>
+            <li><a href="#">Seasonal Specials</a></li>
+          </ul>
+        </div>
 
-  <div class="copyright">
-    <p>&copy; 2023 Nami's Cake and Bake. All Rights Reserved.</p>
-  </div>
-</footer>
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-map-marker-alt"></i> Vishrambag, Sangli</li>
+            <li><i class="fas fa-phone"></i> +91 8767542742</li>
+            <li><i class="fas fa-envelope"></i> info@namiscakeandbake.com</li>
+            <li><i class="fas fa-clock"></i> Mon-Sat: 9am-7pm</li>
+          </ul>
+        </div>
+      </div>
 
-      <script>
-        // Form submission handling
-        const contactForm = document.querySelector('.contact-form');
-        
-        contactForm.addEventListener('submit', function(e) {
-          e.preventDefault(); // Stops page reload
-          
-          // Submit form data to Getform
-          fetch(this.action, {
-            method: 'POST',
-            body: new FormData(this),
-            headers: { 'Accept': 'application/json' }
-          })
-          .then(response => {
+      <div class="copyright">
+        <p>&copy; 2023 Nami's Cake and Bake. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Form submission handling
+      const contactForm = document.querySelector(".contact-form");
+
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault(); // Stops page reload
+
+        // Submit form data to Getform
+        fetch(this.action, {
+          method: "POST",
+          body: new FormData(this),
+          headers: { Accept: "application/json" },
+        })
+          .then((response) => {
             if (response.ok) {
-              alert('Thank you! We will contact you soon.');
+              alert("Thank you! We will contact you soon.");
               contactForm.reset(); // Clear form
             } else {
-              alert('Oops! Something went wrong.');
+              alert("Oops! Something went wrong.");
             }
           })
-          .catch(error => alert('Error: ' + error));
-        });
-      </script>
-      
-</body>
-
+          .catch((error) => alert("Error: " + error));
+      });
+    </script>
+  </body>
 </html>
