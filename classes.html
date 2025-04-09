@@ -46,6 +46,15 @@
           <li><a href="classes.html" class="active">Classes</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li class="location-link">
+            <a
+              href="https://maps.google.com/?q=Vishrambag,Sangli"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fas fa-map-marker-alt"></i> Location
+            </a>
+          </li>
         </ul>
         <button class="hamburger" id="hamburger">&#9776;</button>
       </div>
@@ -701,7 +710,7 @@
             required
           />
         </div>
-    
+
         <div class="form-group">
           <label for="email">Email Address</label>
           <input
@@ -712,7 +721,7 @@
             required
           />
         </div>
-    
+
         <div class="form-group">
           <label for="phone">Phone Number</label>
           <input
@@ -723,7 +732,7 @@
             required
           />
         </div>
-    
+
         <div class="form-group">
           <label for="class-type">Class Type</label>
           <select id="class-type" name="class-type" required>
@@ -740,7 +749,7 @@
             <option value="holiday-camp">Holiday Baking Camp</option>
           </select>
         </div>
-    
+
         <div class="form-group">
           <label for="participants">Number of Participants</label>
           <input
@@ -752,7 +761,7 @@
             required
           />
         </div>
-    
+
         <div class="form-group">
           <label for="message">Additional Notes</label>
           <textarea
@@ -762,12 +771,10 @@
             placeholder="Any allergies, preferences, or questions?"
           ></textarea>
         </div>
-    
+
         <button type="submit" class="btn">Submit Registration</button>
       </form>
     </section>
-    
-    
 
     <footer>
       <div class="footer-container">
@@ -818,7 +825,16 @@
         <div class="footer-col">
           <h3>Contact Us</h3>
           <ul class="footer-links">
-            <li><i class="fas fa-map-marker-alt"></i> Vishrambag, Sangli</li>
+            <li>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Vishrambag,Sangli"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fas fa-map-marker-alt" style="margin-right: 10px"></i>
+                Vishrambag, Sangli
+              </a>
+            </li>
             <li><i class="fas fa-phone"></i> +91 87675427442</li>
             <li><i class="fas fa-envelope"></i> info@namiscakeandbake.com</li>
             <li><i class="fas fa-clock"></i> Mon-Sat: 9am-7pm</li>
@@ -827,7 +843,7 @@
       </div>
 
       <div class="copyright">
-        <p>&copy; 2023 Nami's Cake and Bake. All Rights Reserved.</p>
+        <p>&copy; 2025 Nami's Cake and Bake. All Rights Reserved.</p>
       </div>
     </footer>
 
@@ -912,6 +928,21 @@
       hamburger.addEventListener("click", () => {
         navLinks.classList.toggle("active");
       });
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-NXYG9PJ8KQ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-NXYG9PJ8KQ");
     </script>
   </body>
 </html>
