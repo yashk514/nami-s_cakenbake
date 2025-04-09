@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cakes | Nami's Cake and Bake</title>
+    <link rel="stylesheet" href="styles.css" />
     <link
       rel="shortcut icon"
       href="assets/favicon_io/favicon-32x32.png"
@@ -40,7 +41,70 @@
         color: var(--dark);
         line-height: 1.6;
       }
+       /* Navigation */
+       nav {
+        background-color: white;
+        box-shadow: var(--shadow);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .hamburger {
+        display: none;
+        font-size: 28px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--dark);
+      }
 
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 15px 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        color: var(--accent);
+        font-weight: bold;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-icon {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+      }
+
+      /* Header */
       header {
         background: linear-gradient(135deg, var(--primary), var(--secondary));
         padding: 30px 20px;
@@ -78,6 +142,7 @@
         position: relative;
       }
 
+      /* Section */
       .section {
         padding: 60px 20px;
         max-width: 1400px;
@@ -209,119 +274,7 @@
         transform: scale(1.1);
       }
 
-      footer {
-        background: var(--accent);
-        color: white;
-        text-align: center;
-        padding: 30px 20px;
-        margin-top: 60px;
-      }
 
-      .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .social-icons {
-        margin: 20px 0;
-      }
-
-      .social-icons a {
-        color: white;
-        font-size: 1.5rem;
-        margin: 0 10px;
-        transition: color 0.3s ease;
-      }
-
-      .social-icons a:hover {
-        color: var(--secondary);
-      }
-
-      .copyright {
-        font-size: 0.9rem;
-        opacity: 0.8;
-      }
-
-      @media (max-width: 992px) {
-        .cake-box {
-          flex: 0 0 calc(50% - 20px);
-        }
-
-        h1 {
-          font-size: 2.5rem;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .cake-box {
-          flex: 0 0 calc(100% - 20px);
-        }
-
-        .section h2 {
-          font-size: 2rem;
-        }
-
-        .section {
-          padding: 40px 20px;
-        }
-      }
-      /* Navigation (consistent with classes.html) */
-      nav {
-        background-color: white;
-        box-shadow: var(--shadow);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-
-      .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 15px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .logo {
-        font-family: "Playfair Display", serif;
-        font-size: 1.8rem;
-        color: var(--accent);
-        font-weight: bold;
-      }
-
-      .nav-links {
-        display: flex;
-        list-style: none;
-      }
-
-      .nav-links li {
-        margin-left: 30px;
-      }
-
-      .nav-links a {
-        text-decoration: none;
-        color: var(--dark);
-        font-weight: 600;
-        transition: color 0.3s;
-      }
-
-      .nav-links a:hover {
-        color: var(--primary);
-      }
-      .brand {
-        display: flex;
-        align-items: center;
-      }
-
-      .nav-icon {
-        width: 32px;
-        height: 32px;
-        margin-right: 10px;
-      }
       /* Contact Section Styles */
       .contact-subtitle {
         text-align: center;
@@ -381,21 +334,8 @@
         grid-template-columns: 1fr 1fr;
         gap: 20px;
       }
-      /* 
-#noFocusRing:focus {
-    outline: none;
-    box-shadow: none; 
-    
-  }
 
-  #noFocusRing::placeholder {
-    color: #515050;
-  }
-  #noFocusRing:focus::placeholder {
-    
-    color: transparent;
-  } */
-      .contact-form {
+      .contactForm {
         display: flex;
         flex-direction: column;
         width: 90%;
@@ -460,32 +400,6 @@
 
       .btn:hover {
         background-color: #553c31;
-      }
-
-      @media (max-width: 480px) {
-        .contact-form {
-          padding: 20px;
-        }
-
-        .btn {
-          width: 100%;
-        }
-      }
-
-      @media (max-width: 992px) {
-        .contact-container {
-          grid-template-columns: 1fr;
-        }
-
-        .contact-info {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .form-row {
-          grid-template-columns: 1fr;
-        }
       }
 
       /* Footer Styles */
@@ -586,113 +500,181 @@
         font-size: 0.9rem;
         opacity: 0.8;
       }
-      @media (max-width: 768px) {
+
+      @media (max-width: 992px) {
         .cake-box {
-          flex: 0 0 calc(100% - 20px);
+          flex: 0 0 calc(50% - 20px);
         }
 
-        .section h2 {
-          font-size: 2rem;
-        }
-
-        .section {
-          padding: 40px 20px;
+        h1 {
+          font-size: 2.5rem;
         }
       }
-      @media (max-width: 480px) {
-        /* ... your existing 480px styles ... */
 
-        /* Additional recommended mobile styles */
-        header {
-          padding: 20px 15px;
-        }
-
-        .carousel-container {
-          margin: 20px auto 0;
+      @media (max-width: 1024px) {
+        /* section */
+        .cake-box {
+          flex: 0 0 calc(50% - 20px); /* Show 2 cakes per row */
         }
 
         .cake-box img {
-          height: 200px; /* Slightly smaller images on mobile */
+          height: 220px;
         }
 
-        .nav-container {
-          padding: 10px 15px;
-        }
-      }
-      @media (max-width: 768px) {
-        .footer-container {
+        /* get in touch */
+        .contact-container {
           grid-template-columns: 1fr;
           gap: 30px;
         }
 
-        .footer-col {
+        .contact-info {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .contactForm {
+          max-width: 100%;
+          width: 100%;
+          padding: 20px;
+        }
+        /* footer */
+        .footer-container {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 30px;
+          padding: 0 20px;
+        }
+
+        .footer-col h3 {
+          font-size: 1.2rem;
+        }
+
+        .footer-col p,
+        .footer-links a {
+          font-size: 0.9rem;
+        }
+
+        .social-links a {
+          width: 35px;
+          height: 35px;
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        /* navigation */
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          right: 15px;
+          background-color: white;
+          box-shadow: var(--shadow);
+          width: 200px;
+          padding: 15px;
+          z-index: 999;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .nav-links li {
+          margin: 10px 0;
+          margin-left: 0;
+        }
+
+        .hamburger {
+          display: block;
+        }
+
+        /* Header */
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        .subtitle {
+          font-size: 1rem;
+        }
+
+        header {
+          padding: 25px 15px;
+        }
+
+        /* Section */
+        .cake-box {
+          flex: 0 0 calc(100% - 20px); /* Show 1 cake per row */
+        }
+
+        .cake-box img {
+          height: 200px;
+        }
+
+        .carousel-nav {
+          top: 95%;
+          transform: translateY(-50%);
+          padding: 0 10px;
+        }
+
+        /* get in touch */
+        .contact-info {
+          grid-template-columns: 1fr;
+        }
+
+        .info-box {
+          padding: 20px;
+        }
+
+        .info-box i {
+          font-size: 1.8rem;
+        }
+
+        .info-box h3 {
+          font-size: 1.1rem;
+        }
+
+        .info-box p {
+          font-size: 0.9rem;
+        }
+
+        .form-group label {
+          font-size: 0.95rem;
+        }
+
+        .input-field {
+          font-size: 15px;
+        }
+
+        .btn {
+          font-size: 0.95rem;
+        }
+
+        /* Footer */
+        .footer-container {
+          grid-template-columns: 1fr 1fr;
           text-align: center;
         }
 
-        .footer-col h3::after {
-          left: 50%;
-          transform: translateX(-50%);
+        .footer-col {
+          align-items: center;
         }
 
-        .footer-links {
-          justify-content: center;
+        .footer-col h3::after {
+          margin: 0 auto;
+          left: 50%;
+          transform: translateX(-50%);
         }
 
         .social-links {
           justify-content: center;
         }
-      }
-      @media (max-width: 768px) {
-        body {
-          padding: 20px;
-          height: auto;
-          align-items: flex-start;
-        }
 
-        .nav-container {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 10px;
-        }
-
-        .brand {
-          flex-direction: row;
-          align-items: center;
-        }
-
-        .logo {
-          font-size: 1.5rem;
-        }
-
-        .nav-links {
-          flex-wrap: wrap;
-          margin-top: 10px;
-          padding-left: 0;
-        }
-
-        .nav-links li {
-          margin: 10px 10px 0 0;
-        }
-
-        .nav-links a {
-          font-size: 14px;
-        }
-
-        .nav-icon {
-          width: 28px;
-          height: 28px;
+        .footer-links li {
+          justify-content: center;
         }
       }
 
       @media (max-width: 480px) {
-        html {
-          font-size: 14px;
-        }
-
-        .nav-container {
-          padding: 10px 15px;
-        }
-
+        /* navigation */
         .logo {
           font-size: 1.3rem;
         }
@@ -700,7 +682,101 @@
         .nav-icon {
           width: 24px;
           height: 24px;
-          margin-right: 8px;
+        }
+
+        .hamburger {
+          font-size: 24px;
+        }
+
+        .nav-links {
+          right: 10px;
+          width: 180px;
+        }
+        /* Header */
+        h1 {
+          font-size: 2rem;
+        }
+
+        .subtitle {
+          font-size: 0.9rem;
+        }
+
+        header {
+          padding: 20px 10px;
+        }
+
+        /* section */
+        .cake-info {
+          padding: 15px 10px;
+        }
+
+        .cake-info h3 {
+          font-size: 1.2rem;
+        }
+
+        .cake-info p {
+          font-size: 0.85rem;
+        }
+
+        .price {
+          font-size: 1rem;
+        }
+
+        .carousel-btn {
+          width: 35px;
+          height: 35px;
+        }
+
+        /* get in touch */
+        .section h2 {
+          font-size: 1.8rem;
+        }
+
+        .contact-subtitle {
+          font-size: 1rem;
+          margin-bottom: 25px;
+        }
+
+        .contactForm {
+          padding: 15px;
+        }
+
+        .form-group {
+          padding-bottom: 8px;
+        }
+
+        .btn {
+          padding: 10px 12px;
+        }
+
+        /* footer */
+        .footer-container {
+          grid-template-columns: 1fr;
+          gap: 25px;
+        }
+
+        .footer-col {
+          text-align: center;
+        }
+
+        .footer-col h3 {
+          font-size: 1.1rem;
+        }
+
+        .footer-col p,
+        .footer-links a {
+          font-size: 0.85rem;
+        }
+
+        .social-links a {
+          width: 32px;
+          height: 32px;
+          font-size: 0.9rem;
+        }
+
+        .copyright {
+          font-size: 0.8rem;
+          padding: 15px 10px 0;
         }
       }
     </style>
@@ -725,6 +801,7 @@
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <button class="hamburger" id="hamburger">&#9776;</button>
       </div>
     </nav>
 
@@ -1117,77 +1194,7 @@
       </div>
     </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Initialize all carousels
-        initCarousel("chocolate");
-        initCarousel("truffle");
-        initCarousel("semiFondant");
-        initCarousel("freshCream");
-
-        // Add hover effect to cake boxes
-        const cakeBoxes = document.querySelectorAll(".cake-box");
-        cakeBoxes.forEach((box) => {
-          box.addEventListener("mouseenter", function () {
-            this.style.transform = "translateY(-10px)";
-            this.style.boxShadow = "0 15px 30px rgba(0,0,0,0.15)";
-          });
-
-          box.addEventListener("mouseleave", function () {
-            this.style.transform = "translateY(0)";
-            this.style.boxShadow = "0 5px 15px rgba(0,0,0,0.1)";
-          });
-        });
-
-        // Form submission handling
-        const contactForm = document.querySelector(".contact-form");
-        if (contactForm) {
-          contactForm.addEventListener("submit", function (e) {
-            e.preventDefault();
-            alert("Thank you for your message! We will contact you soon.");
-            this.reset();
-          });
-        }
-      });
-
-      function initCarousel(type) {
-        const container = document.getElementById(`${type}Carousel`);
-        const track = document.getElementById(`${type}Track`);
-        const prevBtn = document.getElementById(`${type}Prev`);
-        const nextBtn = document.getElementById(`${type}Next`);
-        const items = track.querySelectorAll(".cake-box");
-
-        if (items.length === 0) return;
-
-        const itemWidth = items[0].offsetWidth + 20; // width + margin
-        let position = 0;
-        const visibleItems =
-          window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
-        const maxPosition = (items.length - visibleItems) * itemWidth;
-
-        // Next button click
-        nextBtn.addEventListener("click", () => {
-          position = Math.min(position + itemWidth, maxPosition);
-          track.style.transform = `translateX(-${position}px)`;
-        });
-
-        // Previous button click
-        prevBtn.addEventListener("click", () => {
-          position = Math.max(position - itemWidth, 0);
-          track.style.transform = `translateX(-${position}px)`;
-        });
-
-        // Handle window resize
-        window.addEventListener("resize", () => {
-          const newVisibleItems =
-            window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
-          const newMaxPosition = (items.length - newVisibleItems) * itemWidth;
-          position = Math.min(position, newMaxPosition);
-          track.style.transform = `translateX(-${position}px)`;
-        });
-      }
-    </script>
-    <!-- Replace your current contact section with this -->
+    <!-- Get in Touch -->
     <section class="section" id="contact">
       <h2>Get in Touch</h2>
       <p class="contact-subtitle">
@@ -1219,7 +1226,7 @@
         </div>
 
         <form
-          class="contact-form"
+          class="contactForm"
           action="https://getform.io/f/bllyvdqb"
           method="POST"
         >
@@ -1337,6 +1344,75 @@
     </footer>
 
     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize all carousels
+        initCarousel("chocolate");
+        initCarousel("truffle");
+        initCarousel("semiFondant");
+        initCarousel("freshCream");
+
+        // Add hover effect to cake boxes
+        const cakeBoxes = document.querySelectorAll(".cake-box");
+        cakeBoxes.forEach((box) => {
+          box.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-10px)";
+            this.style.boxShadow = "0 15px 30px rgba(0,0,0,0.15)";
+          });
+
+          box.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0)";
+            this.style.boxShadow = "0 5px 15px rgba(0,0,0,0.1)";
+          });
+        });
+
+        // Form submission handling
+        const contactForm = document.querySelector(".contact-form");
+        if (contactForm) {
+          contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Thank you for your message! We will contact you soon.");
+            this.reset();
+          });
+        }
+      });
+
+      function initCarousel(type) {
+        const container = document.getElementById(`${type}Carousel`);
+        const track = document.getElementById(`${type}Track`);
+        const prevBtn = document.getElementById(`${type}Prev`);
+        const nextBtn = document.getElementById(`${type}Next`);
+        const items = track.querySelectorAll(".cake-box");
+
+        if (items.length === 0) return;
+
+        const itemWidth = items[0].offsetWidth + 20; // width + margin
+        let position = 0;
+        const visibleItems =
+          window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
+        const maxPosition = (items.length - visibleItems) * itemWidth;
+
+        // Next button click
+        nextBtn.addEventListener("click", () => {
+          position = Math.min(position + itemWidth, maxPosition);
+          track.style.transform = `translateX(-${position}px)`;
+        });
+
+        // Previous button click
+        prevBtn.addEventListener("click", () => {
+          position = Math.max(position - itemWidth, 0);
+          track.style.transform = `translateX(-${position}px)`;
+        });
+
+        // Handle window resize
+        window.addEventListener("resize", () => {
+          const newVisibleItems =
+            window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
+          const newMaxPosition = (items.length - newVisibleItems) * itemWidth;
+          position = Math.min(position, newMaxPosition);
+          track.style.transform = `translateX(-${position}px)`;
+        });
+      }
+
       // Form submission handling
       const contactForm = document.querySelector(".contact-form");
 
@@ -1358,6 +1434,13 @@
             }
           })
           .catch((error) => alert("Error: " + error));
+      });
+
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
       });
     </script>
   </body>
