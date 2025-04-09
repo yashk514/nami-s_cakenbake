@@ -47,6 +47,7 @@
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <button class="hamburger" id="hamburger">&#9776;</button>
       </div>
     </nav>
 
@@ -600,13 +601,10 @@
           </div>
           <div class="testimonial-author">
             <div class="author-img">
-              <img
-                src="https://randomuser.me/api/portraits/women/43.jpg"
-                alt="Priya M."
-              />
+              <img src="assets/authorImg2.png" alt="Payal" />
             </div>
             <div class="author-info">
-              <h4>Priya M.</h4>
+              <h4>Payal</h4>
               <p>Parent</p>
               <div class="rating">
                 <i class="fas fa-star"></i>
@@ -630,13 +628,10 @@
           </div>
           <div class="testimonial-author">
             <div class="author-img">
-              <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
-                alt="Rahul K."
-              />
+              <img src="assets/authorImg1.png" alt="Rohan " />
             </div>
             <div class="author-info">
-              <h4>Rahul K.</h4>
+              <h4>Rohan</h4>
               <p>Cooking Student</p>
               <div class="rating">
                 <i class="fas fa-star"></i>
@@ -660,13 +655,10 @@
           </div>
           <div class="testimonial-author">
             <div class="author-img">
-              <img
-                src="https://randomuser.me/api/portraits/women/65.jpg"
-                alt="Ananya S."
-              />
+              <img src="assets/authorImg3.png" alt="Shreya" />
             </div>
             <div class="author-info">
-              <h4>Ananya S.</h4>
+              <h4>Shreya</h4>
               <p>Baking Student</p>
               <div class="rating">
                 <i class="fas fa-star"></i>
@@ -690,86 +682,51 @@
       </p>
       <a href="contact.html" class="btn btn-outline">Register Now</a>
     </section>
+
     <!-- Contact Form -->
-    <section class="section" id="contact-form" style="background-color: white">
+    <section class="section" id="contact-form">
       <h2 class="section-title">Class Registration</h2>
       <form
         class="contact-form"
         action="https://getform.io/f/bllyvdqb"
         method="POST"
-        style="max-width: 600px; margin: 0 auto"
       >
-        <div style="margin-bottom: 20px">
-          <label
-            for="name"
-            style="display: block; margin-bottom: 5px; font-weight: bold"
-            >Your Name</label
-          >
-          <input type="text"  id="name" name="name" required style="
-              width: 100%;
-              padding: 10px;
-              border: 1px solid #ddd;
-              border-radius: 5px;
-            "/>
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your full name"
+            required
+          />
         </div>
-
-        <div style="margin-bottom: 20px">
-          <label
-            for="email"
-            style="display: block; margin-bottom: 5px; font-weight: bold"
-            >Email Address</label
-          >
+    
+        <div class="form-group">
+          <label for="email">Email Address</label>
           <input
             type="email"
             id="email"
             name="email"
+            placeholder="example@email.com"
             required
-            style="
-              width: 100%;
-              padding: 10px;
-              border: 1px solid #ddd;
-              border-radius: 5px;
-            "
           />
         </div>
-
-        <div style="margin-bottom: 20px">
-          <label
-            for="phone"
-            style="display: block; margin-bottom: 5px; font-weight: bold"
-            >Phone Number</label
-          >
+    
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
           <input
             type="tel"
             id="phone"
             name="phone"
+            placeholder="e.g. +91 9876543210"
             required
-            style="
-              width: 100%;
-              padding: 10px;
-              border: 1px solid #ddd;
-              border-radius: 5px;
-            "
           />
         </div>
-
-        <div style="margin-bottom: 20px">
-          <label
-            for="class-type"
-            style="display: block; margin-bottom: 5px; font-weight: bold"
-            >Class Type</label
-          >
-          <select
-            id="class-type"
-            name="class-type"
-            required
-            style="
-              width: 100%;
-              padding: 10px;
-              border: 1px solid #ddd;
-              border-radius: 5px;
-            "
-          >
+    
+        <div class="form-group">
+          <label for="class-type">Class Type</label>
+          <select id="class-type" name="class-type" required>
             <option value="">Select a class...</option>
             <option value="north-indian">North Indian Cooking</option>
             <option value="south-indian">South Indian Cooking</option>
@@ -783,56 +740,34 @@
             <option value="holiday-camp">Holiday Baking Camp</option>
           </select>
         </div>
-
-        <div style="margin-bottom: 20px">
-          <label
-            for="participants"
-            style="display: block; margin-bottom: 5px; font-weight: bold"
-            >Number of Participants</label
-          >
+    
+        <div class="form-group">
+          <label for="participants">Number of Participants</label>
           <input
             type="number"
             id="participants"
             name="participants"
+            placeholder="e.g. 2"
             min="1"
             required
-            style="
-              width: 100%;
-              padding: 10px;
-              border: 1px solid #ddd;
-              border-radius: 5px;
-            "
           />
         </div>
-
-        <div style="margin-bottom: 20px">
-          <label
-            for="message"
-            style="display: block; margin-bottom: 5px; font-weight: bold"
-            >Additional Notes</label
-          >
+    
+        <div class="form-group">
+          <label for="message">Additional Notes</label>
           <textarea
             id="message"
             name="message"
             rows="4"
-            style="
-              width: 100%;
-              padding: 10px;
-              border: 1px solid #ddd;
-              border-radius: 5px;
-            "
+            placeholder="Any allergies, preferences, or questions?"
           ></textarea>
         </div>
-
-        <button
-          type="submit"
-          class="btn"
-          style="width: 100%; padding: 12px; font-size: 1.1rem"
-        >
-          Submit Registration
-        </button>
+    
+        <button type="submit" class="btn">Submit Registration</button>
       </form>
     </section>
+    
+    
 
     <footer>
       <div class="footer-container">
@@ -969,6 +904,13 @@
             });
           });
         });
+      });
+
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
       });
     </script>
   </body>
