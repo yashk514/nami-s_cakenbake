@@ -848,62 +848,64 @@
     </footer>
 
     <script>
-      // Tab functionality
-      const tabBtns = document.querySelectorAll(".tab-btn");
-      const tabContents = document.querySelectorAll(".tab-content");
-
-      tabBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          // Remove active class from all buttons and contents
-          tabBtns.forEach((btn) => btn.classList.remove("active"));
-          tabContents.forEach((content) => content.classList.remove("active"));
-
-          // Add active class to clicked button
-          btn.classList.add("active");
-
-          // Show corresponding content
-          const tabId = btn.getAttribute("data-tab");
-          document.getElementById(tabId).classList.add("active");
-        });
-      });
-
-      // Form submission
-      const form = document.querySelector("form");
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        fetch(this.action, {
-          method: "POST",
-          body: new FormData(this),
-          headers: {
-            Accept: "application/json",
-          },
-        })
-          .then((response) => {
-            if (response.ok) {
-              alert(
-                "Thank you! We will contact you shortly to confirm your booking."
-              );
-              form.reset();
-            } else {
-              alert("Oops! Something went wrong. Please try again.");
-            }
-          })
-          .catch((error) => {
-            alert("Error: " + error.message);
-          });
-      });
-
-      // Initialize Calendly for all book now buttons
       document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll(".book-now").forEach((button) => {
+        // ======= TAB FUNCTIONALITY =======
+        const tabBtns = document.querySelectorAll(".tab-btn");
+        const tabContents = document.querySelectorAll(".tab-content");
+    
+        tabBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            tabBtns.forEach((b) => b.classList.remove("active"));
+            tabContents.forEach((content) => content.classList.remove("active"));
+    
+            btn.classList.add("active");
+            const tabId = btn.getAttribute("data-tab");
+            const activeTab = document.getElementById(tabId);
+            if (activeTab) {
+              activeTab.classList.add("active");
+            }
+          });
+        });
+    
+        // ======= FORM SUBMISSION =======
+        const form = document.querySelector("form");
+        if (form) {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            fetch(this.action, {
+              method: "POST",
+              body: new FormData(this),
+              headers: {
+                Accept: "application/json",
+              },
+            })
+              .then((response) => {
+                if (response.ok) {
+                  alert("Thank you! We will contact you shortly to confirm your booking.");
+                  form.reset();
+                } else {
+                  alert("Oops! Something went wrong. Please try again.");
+                }
+              })
+              .catch((error) => {
+                alert("Error: " + error.message);
+              });
+          });
+        }
+    
+        // ======= CALENDLY INTEGRATION =======
+        const bookButtons = document.querySelectorAll(".book-now");
+        bookButtons.forEach((button) => {
           button.addEventListener("click", function (e) {
             e.preventDefault();
+    
             const url = this.getAttribute("data-calendly-url");
-
+            if (!url) return;
+    
             const classCard = this.closest(".class-card");
-            const className = classCard.querySelector("h3").textContent;
-            const classPrice = classCard.querySelector(".price").textContent;
-
+            const className = classCard?.querySelector("h3")?.textContent || "Class";
+            const classPrice = classCard?.querySelector(".price")?.textContent || "Price";
+    
             Calendly.initPopupWidget({
               url: url,
               prefill: {
@@ -920,16 +922,19 @@
             });
           });
         });
-      });
-
-      const hamburger = document.getElementById("hamburger");
-      const navLinks = document.querySelector(".nav-links");
-
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
+    
+        // ======= HAMBURGER NAVIGATION =======
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.querySelector(".nav-links");
+    
+        if (hamburger && navLinks) {
+          hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+          });
+        }
       });
     </script>
-
+    
     <!-- Google tag (gtag.js) -->
     <script
       async
