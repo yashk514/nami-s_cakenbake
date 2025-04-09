@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gallery | Nami's Cake and Bake</title>
+    <link rel="stylesheet" href="styles.css" />
     <link
       rel="shortcut icon"
       href="assets/favicon_io/favicon-32x32.png"
@@ -40,16 +41,22 @@
         top: 0;
         z-index: 100;
       }
+      .hamburger {
+        display: none;
+        font-size: 28px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--dark);
+      }
 
       .nav-container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 15px 20px;
+        padding: 15px 25px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-wrap: nowrap; /* Keep items in a single row */
-        overflow-x: auto;
       }
 
       .logo {
@@ -59,29 +66,13 @@
         font-weight: bold;
       }
 
-      .brand {
-        display: flex;
-        align-items: center;
-      }
-
-      .nav-icon {
-        width: 32px;
-        height: 32px;
-        margin-right: 10px;
-      }
-
       .nav-links {
         display: flex;
         list-style: none;
-        flex-wrap: nowrap; /* Keep links in one line */
-        overflow-x: auto; /* Scroll if overflow */
-        padding-left: 0;
-        margin: 0;
       }
 
       .nav-links li {
         margin-left: 30px;
-        white-space: nowrap;
       }
 
       .nav-links a {
@@ -93,6 +84,16 @@
 
       .nav-links a:hover {
         color: var(--primary);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-icon {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
       }
 
       /* Gallery Header */
@@ -179,20 +180,28 @@
         padding: 30px 20px;
         margin-top: 40px;
       }
-
-      .social-links {
-        margin: 15px 0;
+      .sociallinks {
+        display: flex;
+        margin-top: 20px;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
       }
-
-      .social-links a {
+      .sociallinks a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        margin-right: 10px;
         color: white;
-        font-size: 24px;
-        margin: 0 10px;
-        transition: color 0.3s ease;
+        transition: all 0.3s;
       }
-
-      .social-links a:hover {
-        color: var(--primary);
+      .sociallinks a:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
       }
 
       /* Modal (if included) */
@@ -204,52 +213,36 @@
       }
 
       /* Responsive Media Queries */
-      @media (max-width: 768px) {
-        .nav-container {
-          flex-direction: column;
+      @media (max-width: 600px) {
+        .gallery-header p {
+          font-size: 0.95rem;
         }
-
-        .nav-links {
-          margin-top: 20px;
-        }
-
-        .nav-links li {
-          margin-left: 15px;
-          margin-right: 15px;
-        }
-
-        .gallery-row {
-          grid-template-columns: 1fr;
-        }
-
-        .gallery-header h1 {
-          font-size: 2rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .nav-container {
-          flex-direction: row; /* Ensure row direction on small screens */
-          justify-content: space-between;
-        }
-
-        .logo {
-          font-size: 1.4rem;
-        }
-
-        .nav-links li {
-          margin-left: 15px;
-        }
-
-        .nav-links a {
+        /* Toggle */
+        .toggle-btn {
           font-size: 14px;
+          padding: 8px 16px;
+          min-width: 100px;
         }
+        /* Gallery */
         .gallery-row {
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          gap: 16px;
+        }
+
+        .gallery-header {
+          padding: 40px 10px 20px;
         }
 
         .gallery-header h1 {
-          font-size: 1.6rem;
+          font-size: 1.8rem;
+        }
+
+        .toggle-buttons {
+          margin: 20px 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
         }
 
         .toggle-btn {
@@ -257,12 +250,183 @@
           font-size: 14px;
         }
 
+        .gallery-row {
+          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+          gap: 15px;
+        }
+
+        .post-card {
+          border-radius: 8px;
+          aspect-ratio: 1/1;
+        }
+
+        /* Footer */
+        .sociallinks a {
+          width: 36px;
+          height: 36px;
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        /* navigation */
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          right: 15px;
+          background-color: white;
+          box-shadow: var(--shadow);
+          width: 200px;
+          padding: 15px;
+          z-index: 999;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
         .nav-links li {
+          margin: 10px 0;
           margin-left: 0;
         }
 
+        .hamburger {
+          display: block;
+        }
+
+        /* Header */
+        .gallery-header {
+          padding: 50px 20px 25px;
+        }
+
+        .gallery-header p {
+          font-size: 1rem;
+        }
+
+        /* Toggle */
+        .toggle-btn {
+          font-size: 15px;
+          padding: 9px 18px;
+          min-width: 110px;
+        }
+
+        /* Gallery */
+        .gallery-row {
+          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+          gap: 20px;
+        }
+        .gallery-header h1 {
+          font-size: 2rem;
+        }
+
+        .gallery-container {
+          padding: 0 15px 30px;
+        }
+
+        .gallery-row {
+          gap: 20px;
+        }
+
+        .post-card {
+          aspect-ratio: 1/1;
+        }
+
+        /* Footer */
+        footer {
+          padding: 25px 15px;
+        }
+        footer p {
+          font-size: 0.95rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        /* navigation */
         .logo {
+          font-size: 1.3rem;
+        }
+
+        .nav-icon {
+          width: 24px;
+          height: 24px;
+        }
+
+        .hamburger {
+          font-size: 24px;
+        }
+
+        .nav-links {
+          right: 10px;
+          width: 180px;
+        }
+
+        /* Header */
+        .gallery-header {
+          padding: 40px 15px 20px;
+        }
+
+        .gallery-header h1 {
+          font-size: 1.75rem;
+        }
+
+        .gallery-header p {
+          font-size: 0.9rem;
+        }
+
+        /* Toggle */
+        .toggle-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .toggle-btn {
+          width: 80%;
+          max-width: 300px;
+          font-size: 14px;
+        }
+        /* Gallery */
+        .gallery-row {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+
+        .post-card {
+          aspect-ratio: auto; /* let height adjust naturally on very small screens */
+        }
+        .gallery-header h1 {
           font-size: 1.5rem;
+        }
+
+        .toggle-btn {
+          font-size: 13px;
+          padding: 6px 14px;
+        }
+
+        .gallery-row {
+          grid-template-columns: 1fr; /* Full width cards on small devices */
+          gap: 12px;
+        }
+
+        
+        /* Footer */
+        footer {
+          padding: 20px 10px;
+        }
+
+        footer p {
+          font-size: 0.9rem;
+        }
+
+        .sociallinks {
+          margin-top: 15px;
+        }
+
+        .sociallinks a {
+          width: 34px;
+          height: 34px;
+          font-size: 0.85rem;
         }
       }
     </style>
@@ -286,6 +450,7 @@
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <button class="hamburger" id="hamburger">&#9776;</button>
       </div>
     </nav>
 
@@ -540,7 +705,7 @@
     <!-- Footer -->
     <footer>
       <p>Follow us @namis_cakenbake_</p>
-      <div class="social-links">
+      <div class="sociallinks">
         <a href="https://instagram.com/namis_cakenbake_" target="_blank"
           ><i class="fab fa-instagram"></i
         ></a>
@@ -570,6 +735,13 @@
         instagramScript.src = "//www.instagram.com/embed.js";
         instagramScript.async = true;
         document.body.appendChild(instagramScript);
+      });
+
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
       });
     </script>
   </body>
