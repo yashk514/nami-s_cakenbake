@@ -725,33 +725,38 @@
     </footer>
 
     <script>
-      function showCategory(category, btn) {
-        document.querySelectorAll(".gallery-row").forEach((row) => {
-          row.style.display = "none";
-        });
-        document.querySelector("." + category).style.display = "grid";
-
-        document.querySelectorAll(".toggle-btn").forEach((button) => {
-          button.classList.remove("active");
-        });
-        btn.classList.add("active");
-      }
-
-      // Load Instagram embeds after page loads
       document.addEventListener("DOMContentLoaded", function () {
+        // Show gallery category
+        window.showCategory = function (category, btn) {
+          document.querySelectorAll(".gallery-row").forEach((row) => {
+            row.style.display = "none";
+          });
+          document.querySelector("." + category).style.display = "grid";
+    
+          document.querySelectorAll(".toggle-btn").forEach((button) => {
+            button.classList.remove("active");
+          });
+          btn.classList.add("active");
+        };
+    
+        // Load Instagram embeds
         const instagramScript = document.createElement("script");
         instagramScript.src = "//www.instagram.com/embed.js";
         instagramScript.async = true;
         document.body.appendChild(instagramScript);
-      });
-
-      const hamburger = document.getElementById("hamburger");
-      const navLinks = document.querySelector(".nav-links");
-
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
+    
+        // Hamburger toggle
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.querySelector(".nav-links");
+    
+        if (hamburger && navLinks) {
+          hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+          });
+        }
       });
     </script>
+    
     <!-- Google tag (gtag.js) -->
     <script
       async
