@@ -720,6 +720,15 @@
           <li><a href="classes.html">Classes</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li class="location-link">
+            <a
+              href="https://maps.google.com/?q=Vishrambag,Sangli"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fas fa-map-marker-alt"></i> Location
+            </a>
+          </li>
         </ul>
         <button class="hamburger" id="hamburger">&#9776;</button>
       </div>
@@ -919,8 +928,14 @@
           <h3>Contact Info</h3>
           <ul class="footer-links">
             <li>
-              <i class="fas fa-map-marker-alt" style="margin-right: 10px"></i>
-              Vishrambag, Sangli
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Vishrambag,Sangli"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fas fa-map-marker-alt" style="margin-right: 10px"></i>
+                Vishrambag, Sangli
+              </a>
             </li>
             <li>
               <i class="fas fa-phone" style="margin-right: 10px"></i> +91
@@ -935,7 +950,7 @@
       </div>
 
       <div class="copyright">
-        &copy; 2023 Nami's Cake and Bake. All rights reserved.
+        &copy; 2025 Nami's Cake and Bake. All rights reserved.
       </div>
     </footer>
 
@@ -984,6 +999,21 @@
       hamburger.addEventListener("click", () => {
         navLinks.classList.toggle("active");
       });
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-NXYG9PJ8KQ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-NXYG9PJ8KQ");
     </script>
   </body>
 </html>
