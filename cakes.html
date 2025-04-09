@@ -41,8 +41,8 @@
         color: var(--dark);
         line-height: 1.6;
       }
-       /* Navigation */
-       nav {
+      /* Navigation */
+      nav {
         background-color: white;
         box-shadow: var(--shadow);
         position: sticky;
@@ -274,6 +274,58 @@
         transform: scale(1.1);
       }
 
+      .info-box {
+        background: white;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      /* Location Link Styling */
+      .locationlink {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        padding: 25px;
+        text-align: center;
+        position: relative;
+      }
+
+      .locationlink i {
+        color: var(--primary);
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+      }
+
+      .locationlink h3 {
+        color: var(--accent);
+        font-family: "Playfair Display", serif;
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+      }
+
+      .locationlink p {
+        color: var(--dark);
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+
+      /* Hover Effects */
+      .info-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .location-link:hover i {
+        transform: scale(1.1);
+      }
+
+      .location-link:hover .map-link {
+        background: var(--accent);
+        padding-right: 20px;
+      }
 
       /* Contact Section Styles */
       .contact-subtitle {
@@ -800,6 +852,15 @@
           <li><a href="classes.html">Classes</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li class="location-link">
+            <a
+              href="https://maps.google.com/?q=Vishrambag,Sangli"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fas fa-map-marker-alt"></i> Location
+            </a>
+          </li>
         </ul>
         <button class="hamburger" id="hamburger">&#9776;</button>
       </div>
@@ -1204,9 +1265,16 @@
       <div class="contact-container">
         <div class="contact-info">
           <div class="info-box">
-            <i class="fas fa-map-marker-alt"></i>
-            <h3>Our Location</h3>
-            <p>Vishrambag, Sangli</p>
+            <a
+              href="https://maps.google.com/?q=Vishrambag,Sangli"
+              class="locationlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fas fa-map-marker-alt"></i>
+              <h3>Our Location</h3>
+              <p>Vishrambag, Sangli</p>
+            </a>
           </div>
           <div class="info-box">
             <i class="fas fa-phone"></i>
@@ -1330,7 +1398,16 @@
         <div class="footer-col">
           <h3>Contact Us</h3>
           <ul class="footer-links">
-            <li><i class="fas fa-map-marker-alt"></i> Vishrambag, Sangli</li>
+            <li>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Vishrambag,Sangli"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fas fa-map-marker-alt" style="margin-right: 10px"></i>
+                Vishrambag, Sangli
+              </a>
+            </li>
             <li><i class="fas fa-phone"></i> +91 8767542742</li>
             <li><i class="fas fa-envelope"></i> info@namiscakeandbake.com</li>
             <li><i class="fas fa-clock"></i> Mon-Sat: 9am-7pm</li>
@@ -1339,7 +1416,7 @@
       </div>
 
       <div class="copyright">
-        <p>&copy; 2023 Nami's Cake and Bake. All Rights Reserved.</p>
+        <p>&copy; 2025 Nami's Cake and Bake. All Rights Reserved.</p>
       </div>
     </footer>
 
@@ -1442,6 +1519,20 @@
       hamburger.addEventListener("click", () => {
         navLinks.classList.toggle("active");
       });
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-NXYG9PJ8KQ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-NXYG9PJ8KQ");
     </script>
   </body>
 </html>
